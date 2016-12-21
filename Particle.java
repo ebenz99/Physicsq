@@ -63,22 +63,22 @@ public static void setParticle(String myName, String myCharge, String mySpin, St
     if((name=="?")&&(charge=="?")&&(spin=="?")&&(regular=="?")&&(mass=="?")){
     System.out.println("Not enough info");    
     }
-    if((mass=="light")&&(charge=="2/3")){
+    if(((mass=="light")&&(charge=="2/3"))||(name=="up")){
     //set everything to up quark;    
     }
-    if((mass=="medium")&&(charge=="2/3")){
+    if(((mass=="medium")&&(charge=="2/3"))||(name=="charmed")){
     //set everything to charmed quark;    
     }
-    if((mass=="heavy")&&(charge=="2/3")){
+    if(((mass=="heavy")&&(charge=="2/3"))||(name=="top")){
     //set everything to top quark;    
     }
-    if((mass=="light")&&(charge=="-1/3")){
+    if(((mass=="light")&&(charge=="-1/3"))||(name=="down")){
     //set everything to down quark;    
     }
-    if((mass=="medium")&&(charge=="-1/3")){
+    if(((mass=="medium")&&(charge=="-1/3"))||(name=="strange")){
     //set everything to strange quark;    
     }
-    if((mass=="heavy")&&(charge=="-1/3")){
+    if(((mass=="heavy")&&(charge=="-1/3"))||(name=="bottom")){
     //set everything to bottom quark;    
     }
                 
