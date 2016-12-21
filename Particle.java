@@ -45,28 +45,27 @@ public static final String NAME_ANTI_MUON_NEUTRINO = "anti muon neutrino";
 public static final String NAME_ANTI_TAU_NEUTRINO = "anti tau neutrino";
 
 private String mass;
-private double charge;
-private double spin;
-private String group;
-private int regular;
+private String charge;
+private String spin;
+private String regular;
 private String name;
 
 //all-args constructor
-public Particle(String myName, double myCharge, double mySpin, String myGroup, int myRegular, String myMass){
+public Particle(String myName, String myCharge, String mySpin, String myRegular, String myMass){
     mass=myMass;
     charge=myCharge;
     spin=mySpin;
-    group=myGroup;
     regular=myRegular;
     name=myName;
 }
 
-public Particle(String myName, double myCharge, double mySpin, int regular, String myMass){
-    charge=myCharge;
-    if(charge==2/3){
-        
+public static void setParticle(String myName, String myCharge, String mySpin, String myRegular, String myMass){
+    if((name=="?")&&(charge=="?")&&(spin=="?")&&(regular=="?")&&(mass=="?")){
+    System.out.println("Not enough info");    
+    }
+    if((name=="?")&&(charge=="?")&&(spin=="?")&&(regular=="?")&&(mass=="?")){
+    System.out.println("Not enough info");    
     }
 }
-
 
 }
