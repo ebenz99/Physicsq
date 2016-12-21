@@ -6,7 +6,7 @@
 package physics;
 
 /**
- *
+ *xczxczxcZXc
  * @author jeff.bensman
  */
 public class Particle {
