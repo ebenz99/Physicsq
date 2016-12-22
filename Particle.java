@@ -96,28 +96,28 @@ public Particle(String myName){
     }
     if(myName=="charmed quark"){
      mass=MASS_MEDIUM;
-     name=NAME_UP_QUARK;
+     name=NAME_CHARMED_QUARK;
      charge=CHARGE_POS_TWO_THIRDS;
      spin=SPIN_POS_HALF;
      regular=TYPE_REGULAR;
     }
     if(myName=="strange quark"){
      mass=MASS_MEDIUM;
-     name=NAME_DOWN_QUARK;
+     name=NAME_STRANGE_QUARK;
      charge=CHARGE_NEG_ONE_THIRD;
      spin=SPIN_POS_HALF;
      regular=TYPE_REGULAR;
     }
     if(myName=="top quark"){
      mass=MASS_HEAVY;
-     name=NAME_UP_QUARK;
+     name=NAME_TOP_QUARK;
      charge=CHARGE_POS_TWO_THIRDS;
      spin=SPIN_POS_HALF;
      regular=TYPE_REGULAR;
     }
     if(myName=="bottom quark"){
      mass=MASS_HEAVY;
-     name=NAME_DOWN_QUARK;
+     name=NAME_BOTTOM_QUARK;
      charge=CHARGE_NEG_ONE_THIRD;
      spin=SPIN_POS_HALF;
      regular=TYPE_REGULAR;
@@ -180,28 +180,28 @@ public Particle(String myName){
     }
     if(myName=="anti charmed quark"){
      mass=MASS_MEDIUM;
-     name=NAME_ANTI_UP_QUARK;
+     name=NAME_ANTI_CHARMED_QUARK;
      charge=CHARGE_NEG_TWO_THIRDS;
      spin=SPIN_POS_HALF;
      regular=TYPE_ANTI;
     }
     if(myName=="anti strange quark"){
      mass=MASS_MEDIUM;
-     name=NAME_ANTI_DOWN_QUARK;
+     name=NAME_ANTI_STRANGE_QUARK;
      charge=CHARGE_POS_ONE_THIRD;
      spin=SPIN_POS_HALF;
      regular=TYPE_ANTI;
     }
     if(myName=="anti top quark"){
      mass=MASS_HEAVY;
-     name=NAME_ANTI_UP_QUARK;
+     name=NAME_ANTI_TOP_QUARK;
      charge=CHARGE_NEG_TWO_THIRDS;
      spin=SPIN_POS_HALF;
      regular=TYPE_ANTI;
     }
     if(myName=="anti bottom quark"){
      mass=MASS_HEAVY;
-     name=NAME_ANTI_DOWN_QUARK;
+     name=NAME_ANTI_BOTTOM_QUARK;
      charge=CHARGE_POS_ONE_THIRD;
      spin=SPIN_POS_HALF;
      regular=TYPE_ANTI;
@@ -256,24 +256,174 @@ public static void setParticle(String myName, String myCharge, String mySpin, St
     if((name=="?")&&(charge=="?")&&(spin=="?")&&(regular=="?")&&(mass=="?")){
     System.out.println("Not enough info");    
     }
-    if(((mass=="light")&&(charge=="2/3"))||(name=="up")){
-    //set everything to up quark;    
+    if(((mass=="light")&&(charge=="2/3"))||(myName=="up quark")){
+     mass=MASS_LIGHT;
+     name=NAME_UP_QUARK;
+     charge=CHARGE_POS_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;    
     }
-    if(((mass=="medium")&&(charge=="2/3"))||(name=="charmed")){
-    //set everything to charmed quark;    
+    if(((mass=="medium")&&(charge=="2/3"))||(myName=="charmed quark")){
+     mass=MASS_MEDIUM;
+     name=NAME_CHARMED_QUARK;
+     charge=CHARGE_POS_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
     }
-    if(((mass=="heavy")&&(charge=="2/3"))||(name=="top")){
-    //set everything to top quark;    
+    if(((mass=="heavy")&&(charge=="2/3"))||(myName=="top quark")){
+     mass=MASS_HEAVY;
+     name=NAME_TOP_QUARK;
+     charge=CHARGE_POS_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
     }
-    if(((mass=="light")&&(charge=="-1/3"))||(name=="down")){
-    //set everything to down quark;    
+    if(((mass=="light")&&(charge=="-1/3"))||(myName=="down quark")){
+     mass=MASS_LIGHT;
+     name=NAME_DOWN_QUARK;
+     charge=CHARGE_NEG_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;   
     }
-    if(((mass=="medium")&&(charge=="-1/3"))||(name=="strange")){
-    //set everything to strange quark;    
+    if(((mass=="medium")&&(charge=="-1/3"))||(myName=="strange quark")){
+     mass=MASS_MEDIUM;
+     name=NAME_STRANGE_QUARK;
+     charge=CHARGE_NEG_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;    
     }
-    if(((mass=="heavy")&&(charge=="-1/3"))||(name=="bottom")){
-    //set everything to bottom quark;    
+    if(((mass=="heavy")&&(charge=="-1/3"))||(myName=="bottom quark")){
+     mass=MASS_HEAVY;
+     name=NAME_BOTTOM_QUARK;
+     charge=CHARGE_NEG_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;  
     }
+    if(((mass=="light")&&(charge=="-2/3"))||(myName=="anti up quark")){
+     mass=MASS_MEDIUM;
+     name=NAME_ANTI_CHARMED_QUARK;
+     charge=CHARGE_NEG_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }
+    if(((mass=="medium")&&(charge=="-2/3"))||(myName=="anti charmed quark")){
+     mass=MASS_MEDIUM;
+     name=NAME_ANTI_CHARMED_QUARK;
+     charge=CHARGE_NEG_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;   
+    }
+    if(((mass=="heavy")&&(charge=="-2/3"))||(myName=="anti top quark")){
+     mass=MASS_HEAVY;
+     name=NAME_ANTI_TOP_QUARK;
+     charge=CHARGE_NEG_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }
+    if(((mass=="light")&&(charge=="1/3"))||(myName=="anti down quark")){
+     mass=MASS_LIGHT;
+     name=NAME_ANTI_DOWN_QUARK;
+     charge=CHARGE_POS_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI; 
+    }
+    if(((mass=="medium")&&(charge=="1/3"))||(myName=="anti strange quark")){
+     mass=MASS_MEDIUM;
+     name=NAME_ANTI_STRANGE_QUARK;
+     charge=CHARGE_POS_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI; 
+    }
+    if(((mass=="heavy")&&(charge=="1/3"))||(myName=="anti bottom quark")){
+     mass=MASS_HEAVY;
+     name=NAME_ANTI_BOTTOM_QUARK;
+     charge=CHARGE_POS_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;  
+    }
+     if(((mass=="light")&&(charge=="-1"))||(myName=="electron")){
+      mass=MASS_LIGHT;
+      name=NAME_ELECTRON;
+      charge=CHARGE_NEG_ONE;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_REGULAR;
+    }
+     if(((mass=="medium")&&(charge=="-1"))||(myName=="muon")){
+      mass=MASS_MEDIUM;
+      name=NAME_MUON;
+      charge=CHARGE_NEG_ONE;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_REGULAR;
+    }
+    if(((mass=="heavy")&&(charge=="-1"))||(myName=="tauon")){
+     mass=MASS_HEAVY;
+     name=NAME_TAUON;
+     charge=CHARGE_NEG_ONE;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
+    }
+     if(((mass=="light")&&(charge=="0"))||(myName=="electron neutrino")){
+      mass=MASS_LIGHT;
+      name=NAME_ELECTRON_NEUTRINO;
+      charge=CHARGE_ZERO;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_REGULAR;
+    }
+     if(((mass=="medium")&&(charge=="0"))||(myName=="muon neutrino")){
+      mass=MASS_MEDIUM;
+      name=NAME_MUON_NEUTRINO;
+      charge=CHARGE_ZERO;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_REGULAR;
+    }
+    if(((mass=="heavy")&&(charge=="0"))||(myName=="tau neutrino")){
+     mass=MASS_HEAVY;
+     name=NAME_TAU_NEUTRINO;
+     charge=CHARGE_ZERO;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
+    }
+     if(((mass=="light")&&(charge=="1"))||(myName=="anti electron")){
+      mass=MASS_LIGHT;
+      name=NAME_ANTI_ELECTRON;
+      charge=CHARGE_POS_ONE;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_ANTI;
+    }
+     if(((mass=="medium")&&(charge=="1"))||(myName=="anti muon")){
+      mass=MASS_MEDIUM;
+      name=NAME_ANTI_MUON;
+      charge=CHARGE_POS_ONE;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_ANTI;
+    }
+    if(((mass=="heavy")&&(charge=="1"))||(myName=="anti tauon")){
+     mass=MASS_HEAVY;
+     name=NAME_ANTI_TAUON;
+     charge=CHARGE_POS_ONE;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }
+     if(((mass=="light")&&(charge=="0"))||(myName=="anti electron neutrino")){
+      mass=MASS_LIGHT;
+      name=NAME_ANTI_ELECTRON_NEUTRINO;
+      charge=CHARGE_ZERO;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_ANTI;
+    }
+     if(((mass=="medium")&&(charge=="0"))||(myName=="anti muon neutrino")){
+      mass=MASS_MEDIUM;
+      name=NAME_ANTI_MUON_NEUTRINO;
+      charge=CHARGE_ZERO;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_ANTI;
+    }
+    if(((mass=="heavy")&&(charge=="0"))||(myName=="anti tau neutrino")){
+     mass=MASS_HEAVY;
+     name=NAME_ANTI_TAU_NEUTRINO;
+     charge=CHARGE_ZERO;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }    
                 
 }
 
