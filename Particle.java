@@ -164,6 +164,91 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=TYPE_REGULAR;
     }    
+        if(myName=="anti up quark"){
+     mass=MASS_LIGHT;
+     name=NAME_ANTI_UP_QUARK;
+     charge=CHARGE_NEG_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }
+    if(myName=="anti down quark"){
+     mass=MASS_LIGHT;
+     name=NAME_ANTI_DOWN_QUARK;
+     charge=CHARGE_POS_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }
+    if(myName=="anti charmed quark"){
+     mass=MASS_MEDIUM;
+     name=NAME_ANTI_UP_QUARK;
+     charge=CHARGE_NEG_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }
+    if(myName=="anti strange quark"){
+     mass=MASS_MEDIUM;
+     name=NAME_ANTI_DOWN_QUARK;
+     charge=CHARGE_POS_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }
+    if(myName=="anti top quark"){
+     mass=MASS_HEAVY;
+     name=NAME_ANTI_UP_QUARK;
+     charge=CHARGE_NEG_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }
+    if(myName=="anti bottom quark"){
+     mass=MASS_HEAVY;
+     name=NAME_ANTI_DOWN_QUARK;
+     charge=CHARGE_POS_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }
+     if(myName=="anti electron"){
+      mass=MASS_LIGHT;
+      name=NAME_ANTI_ELECTRON;
+      charge=CHARGE_POS_ONE;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_ANTI;
+    }
+     if(myName=="anti muon"){
+      mass=MASS_MEDIUM;
+      name=NAME_ANTI_MUON;
+      charge=CHARGE_POS_ONE;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_ANTI;
+    }
+    if(myName=="anti tauon"){
+     mass=MASS_HEAVY;
+     name=NAME_ANTI_TAUON;
+     charge=CHARGE_POS_ONE;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }
+     if(myName=="anti electron neutrino"){
+      mass=MASS_LIGHT;
+      name=NAME_ANTI_ELECTRON_NEUTRINO;
+      charge=CHARGE_ZERO;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_ANTI;
+    }
+     if(myName=="anti muon neutrino"){
+      mass=MASS_MEDIUM;
+      name=NAME_ANTI_MUON_NEUTRINO;
+      charge=CHARGE_ZERO;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_ANTI;
+    }
+    if(myName=="anti tau neutrino"){
+     mass=MASS_HEAVY;
+     name=NAME_ANTI_TAU_NEUTRINO;
+     charge=CHARGE_ZERO;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_ANTI;
+    }    
+
 }
     
     
