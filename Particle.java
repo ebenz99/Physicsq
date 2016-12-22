@@ -87,6 +87,83 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=TYPE_REGULAR;
     }
+    if(myName=="down quark"){
+     mass=MASS_LIGHT;
+     name=NAME_DOWN_QUARK;
+     charge=CHARGE_NEG_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
+    }
+    if(myName=="charmed quark"){
+     mass=MASS_MEDIUM;
+     name=NAME_UP_QUARK;
+     charge=CHARGE_POS_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
+    }
+    if(myName=="strange quark"){
+     mass=MASS_MEDIUM;
+     name=NAME_DOWN_QUARK;
+     charge=CHARGE_NEG_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
+    }
+    if(myName=="top quark"){
+     mass=MASS_HEAVY;
+     name=NAME_UP_QUARK;
+     charge=CHARGE_POS_TWO_THIRDS;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
+    }
+    if(myName=="bottom quark"){
+     mass=MASS_HEAVY;
+     name=NAME_DOWN_QUARK;
+     charge=CHARGE_NEG_ONE_THIRD;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
+    }
+     if(myName=="electron"){
+      mass=MASS_LIGHT;
+      name=NAME_ELECTRON;
+      charge=CHARGE_NEG_ONE;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_REGULAR;
+    }
+     if(myName=="muon"){
+      mass=MASS_MEDIUM;
+      name=NAME_MUON;
+      charge=CHARGE_NEG_ONE;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_REGULAR;
+    }
+    if(myName=="tauon"){
+     mass=MASS_HEAVY;
+     name=NAME_TAUON;
+     charge=CHARGE_NEG_ONE;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
+    }
+     if(myName=="electron neutrino"){
+      mass=MASS_LIGHT;
+      name=NAME_ELECTRON_NEUTRINO;
+      charge=CHARGE_ZERO;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_REGULAR;
+    }
+     if(myName=="muon neutrino"){
+      mass=MASS_MEDIUM;
+      name=NAME_MUON_NEUTRINO;
+      charge=CHARGE_ZERO;
+      spin=SPIN_POS_HALF;
+      regular=TYPE_REGULAR;
+    }
+    if(myName=="tau neutrino"){
+     mass=MASS_HEAVY;
+     name=NAME_TAU_NEUTRINO;
+     charge=CHARGE_ZERO;
+     spin=SPIN_POS_HALF;
+     regular=TYPE_REGULAR;
+    }    
 }
     
     
