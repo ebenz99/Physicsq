@@ -423,9 +423,24 @@ public static void setParticle(String myName, String myCharge, String mySpin, St
      charge=CHARGE_ZERO;
      spin=SPIN_POS_HALF;
      regular=TYPE_ANTI;
-    }    
-                
+    }                
 }
+    
+public boolean equals(Object other){
+       if (!(other instanceof Particle)){
+         return false;
+       }
+       Animal theOther = (Animal)other;
+       if((this.name.equals(theOther.name)) && (this.charge.equals(theOther.charge)) && (this.spin.equals(theOther.spin)) && (this.mass.equals(theOther.mass) && (this.regular.equals(theOther.regular)){
+        return true;
+       }
+       else{
+        return false;
+       }  
+}
+    
+    
+    
     public static void toString(){
      if(regular="regular"){
       system.out.println("Your particle is the " + name + ". Its mass is " + mass + ", its charge is " + charge + ", and its spin is " + spin + ". It is a regular particle.");  
