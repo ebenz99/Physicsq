@@ -426,5 +426,12 @@ public static void setParticle(String myName, String myCharge, String mySpin, St
     }    
                 
 }
+    public static void toString(){
+     if(regular="regular"){
+      system.out.println("Your particle is the " + name + ". Its mass is " + mass + ", its charge is " + charge + ", and its spin is " + spin + ". It is a regular particle.");  
+     }
+     if(regular="anti"){
+      system.out.println("Your particle is the " + name + ". Its mass is " + mass + ", its charge is " + charge + ", and its spin is " + spin + ". It is an anti particle.");  
+     }                   
 
 }
