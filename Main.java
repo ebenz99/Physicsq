@@ -18,8 +18,6 @@ public class Main{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //do you know charge?
-        //knowCharge=true
         Particle up = new Particle("up quark");
         Particle down = new Particle("down quark");
         Particle charmed = new Particle("charmed quark");
@@ -48,12 +46,13 @@ public class Main{
         System.out.println("Do you know particle's name?");
         Scanner sc = new Scanner(System.in);
         String doThey = sc.nextLine();
-        String test = "yes";
-        if ((doThey==test)){
+        if ((doThey.equals("yes"))){
             System.out.println("What's particle's name?");
             String name = sc.nextLine();
+            Particle begin = new Particle(name);
+            System.out.println("Particle Summary: " + begin.toString());
         }        
-        if (doThey=="no"){
+        if (doThey.equals("no")){
             String name = "?";
             System.out.println("Is the particle light, medium, or heavy? (put ? if unknown)");
             String mass = sc.nextLine();
@@ -62,68 +61,10 @@ public class Main{
             System.out.println("What is the particle's spin (put ? if unknown)");
             String spin = sc.nextLine(); 
             System.out.println("What is the particle anti or regular (put ? if unknown)");
-            String regular = sc.nextLine();             
+            String regular = sc.nextLine();     
+            Particle begin = new Particle(name, charge, spin, regular, mass)
+            System.out.println("Particle Summary: " + begin.toString());
         }
-        else
-            System.out.print("hi");
-        /*String known="";
-        System.out.println("What's the particles name?");
-        Scanner sc = new Scanner(System.in);
-        known += sc.nextLine() + ",";
-        System.out.println("What's the charge?");
-        known += sc.nextLine() + ",";
-        System.out.println("What's the spin?");
-        known += sc.nextLine() + ",";
-        System.out.println(known);System.out.println("Is it regular or anti?");
-        known += sc.nextLine() + ",";
-        System.out.println(known);System.out.println("What's the mass? (light, medium, heavy, or ?)");
-        known += sc.nextLine() + ",";
-        
-    }
-    
-    public static void H(String str){
-        int count = 0;
-        String name = "";
-        String charge="";
-        String spin="";
-        String regular="";
-        String mass="";
-        int i=0;
-        int j=0;
-        int k=0;
-        int l=0;
-        int m=0;
-        int n=0;
-        for(i=0; i<str.length(); i++){
-            if(str.charAt(i)==','){
-                name=str.substring(0,i);
-                break;
-            }
-        }
-        for(j=i+1; j<str.length(); j++){
-            if(str.charAt(j)==','){
-                charge=str.substring(i+1,j);
-                break;
-            }
-        }
-        for(k=j+1; k<str.length(); k++){
-            if(str.charAt(k)==','){
-                spin=str.substring(j+1,k);
-                break;
-            }
-        }
-        for(l=k+1; l<str.length(); l++){
-            if(str.charAt(l)==','){
-                regular=str.substring(k+1,l);
-                break;
-            }
-        }
-        for(m=l+1; m<str.length(); m++){
-            if(str.charAt(m)==','){
-                mass=str.substring(l+1,m);
-                break;
-            }
-        }*/
 
     }
     
