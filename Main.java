@@ -54,12 +54,13 @@ public class Main{
         String regular = "";
         String doThey = "Yes";
         System.out.println("How many particles do you start with?");
+        Scanner sci = new Scanner(System.in);
+        int startNum=sci.nextInt();
         Scanner sc = new Scanner(System.in);
-        int startNum=sc.nextInt();
-        
         
         for(int i=0; i<startNum; i++){
-            System.out.println("Do you know particle's name?");
+            //doThey = sc.nextLine();
+        System.out.println("Do you know particle's name?");     
             /*String*/ doThey = sc.nextLine();
             if ((doThey.equals("yes"))){
                 System.out.println("What's particle's name?");
