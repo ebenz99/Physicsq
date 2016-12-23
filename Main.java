@@ -18,7 +18,7 @@ public class Main{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Particle up = new Particle("up quark");
+         Particle up = new Particle("up quark");
         Particle down = new Particle("down quark");
         Particle charmed = new Particle("charmed quark");
         Particle strange = new Particle("strange quark");
@@ -69,4 +69,3 @@ public class Main{
     }
     
 }
-
