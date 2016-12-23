@@ -17,6 +17,7 @@ public class Main{
     /**
      * @param args the command line arguments
      */
+    ArrayList<Particle> start = new ArrayList<Particle>();
     public static void main(String[] args) {
          Particle up = new Particle("up quark");
         Particle down = new Particle("down quark");
@@ -43,10 +44,12 @@ public class Main{
         Particle antiMuonNeutrino = new Particle("anti muon neutrino");
         Particle antiTauNeutrino = new Particle("anti tau neutrino");
      
-
-
-        System.out.println("Do you know particle's name?");
+        System.out.println("How many particles do you start with?");
         Scanner sc = new Scanner(System.in);
+        int startNum=sc.nextInt();
+        
+        
+        System.out.println("Do you know particle's name?");
         String doThey = sc.nextLine();
         if ((doThey.equals("yes"))){
             System.out.println("What's particle's name?");
