@@ -22,6 +22,7 @@ public class Main{
     
     public static void main(String[] args) {
         ArrayList<Particle> start = new ArrayList<Particle>();
+        ArrayList<Particle> end = new ArrayList<Particle>();
         Particle up = new Particle("up quark");
         Particle down = new Particle("down quark");
         Particle charmed = new Particle("charmed quark");
@@ -57,7 +58,6 @@ public class Main{
         Scanner sci = new Scanner(System.in);
         int startNum=sci.nextInt();
         Scanner sc = new Scanner(System.in);
-        
         for(int i=0; i<startNum; i++){
             //doThey = sc.nextLine();
         System.out.println("Do you know particle's name?");     
