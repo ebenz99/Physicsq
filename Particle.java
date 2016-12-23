@@ -423,7 +423,10 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      charge=CHARGE_ZERO;
      spin=SPIN_POS_HALF;
      regular=TYPE_ANTI;
-    }                
+    }
+    else{
+        System.out.println("Not a particle or not enough information");
+    }
 }
     
 public boolean equals(Object other){
@@ -438,9 +441,7 @@ public boolean equals(Object other){
         return false;
        }  
 }
-    
-    
-    
+      
     public String toString(){
      if(regular=="regular"){
       String reg = ("Your particle is the " + name + ". Its mass is " + mass + ", its charge is " + charge + ", and its spin is " + spin + ". It is a regular particle.");  
