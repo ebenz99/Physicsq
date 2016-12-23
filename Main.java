@@ -18,6 +18,7 @@ public class Main{
      * @param args the command line arguments
      */
     ArrayList<Particle> start = new ArrayList<Particle>();
+    
     public static void main(String[] args) {
          Particle up = new Particle("up quark");
         Particle down = new Particle("down quark");
@@ -44,38 +45,48 @@ public class Main{
         Particle antiMuonNeutrino = new Particle("anti muon neutrino");
         Particle antiTauNeutrino = new Particle("anti tau neutrino");
      
+        String name = "";
+        String mass = "";
+        String charge = "";
+        String spin = "";
+        String regular = "";
+        String doThey = "";
         System.out.println("How many particles do you start with?");
         Scanner sc = new Scanner(System.in);
         int startNum=sc.nextInt();
         
         
-        System.out.println("Do you know particle's name?");
-        String doThey = sc.nextLine();
-        if ((doThey.equals("yes"))){
-            System.out.println("What's particle's name?");
-            String name = sc.nextLine();
-            Particle begin = new Particle(name);
-            System.out.println("Particle Summary: " + begin.toString());
-        }        
-        if (doThey.equals("no")){
-            String name = "?";
-            System.out.println("Is the particle light, medium, or heavy? (put ? if unknown)");
-            String mass = sc.nextLine();
-            System.out.println("What is the particle's charge (put ? if unknown)");
-            String charge = sc.nextLine();
-            System.out.println("What is the particle's spin (put ? if unknown)");
-            String spin = sc.nextLine(); 
-            System.out.println("What is the particle anti or regular (put ? if unknown)");
-            String regular = sc.nextLine();     
-            Particle begin = new Particle(name, charge, spin, regular, mass);}
-            System.out.println("Particle Summary: " + begin.toString());
-
-System.out.println("is there a second particle?");
+        for(int i=0; i<startNum; i++){
+            System.out.println("Do you know particle's name?");
+            /*String*/ doThey = sc.nextLine();
+            if ((doThey.equals("yes"))){
+                System.out.println("What's particle's name?");
+                name = sc.nextLine();
+                start.addParticle(name);
+                //Particle begin = new Particle(name);
+                System.out.println("Particle Summary: " + begin.toString());
+            }        
+            if (doThey.equals("no")){
+                /*String*/ name = "?";
+                System.out.println("Is the particle light, medium, or heavy? (put ? if unknown)");
+                /*String*/ mass = sc.nextLine();
+                System.out.println("What is the particle's charge (put ? if unknown)");
+                /*String*/ charge = sc.nextLine();
+                System.out.println("What is the particle's spin (put ? if unknown)");
+                /*String*/ spin = sc.nextLine(); 
+                System.out.println("What is the particle anti or regular (put ? if unknown)");
+                /*String*/ regular = sc.nextLine(); 
+                start.addParticle(name, charge, spin, regular, mass);
+                //Particle begin = new Particle(name, charge, spin, regular, mass);
+                System.out.println("Particle Summary: " + begin.toString());}
+            }
+            
+/*System.out.println("is there a second particle?");
 String answer = sc.nextLine();
 if(answer.equals("yes")){
    }
 
-        }
+        }*/
 
     }
     
