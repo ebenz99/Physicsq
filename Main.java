@@ -43,6 +43,8 @@ public class Main{
         Particle antiMuonNeutrino = new Particle("anti muon neutrino");
         Particle antiTauNeutrino = new Particle("anti tau neutrino");
      
+
+
         System.out.println("Do you know particle's name?");
         Scanner sc = new Scanner(System.in);
         String doThey = sc.nextLine();
@@ -64,6 +66,12 @@ public class Main{
             String regular = sc.nextLine();     
             Particle begin = new Particle(name, charge, spin, regular, mass);
             System.out.println("Particle Summary: " + begin.toString());
+
+System.out.println("is there a second particle?");
+String answer = sc.nextLine();
+if(answer.equals("yes")){
+   }
+
         }
 
     }
