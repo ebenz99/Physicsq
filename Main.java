@@ -103,12 +103,7 @@ public class Main{
                 break;
             }
         }
-        //for(n=m+1; n<str.length(); n++){
-        //    if(str.charAt(n)==','){
-        //        charge=str.substring(m+1,n);
-        //        break;
-        //    }
-        //}
+
     }
     
 }
