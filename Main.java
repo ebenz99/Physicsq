@@ -45,7 +45,28 @@ public class Main{
         Particle antiMuonNeutrino = new Particle("anti muon neutrino");
         Particle antiTauNeutrino = new Particle("anti tau neutrino");
      
-        String known="";
+        System.out.println("Do you know particle's name?");
+        Scanner sc = new Scanner(System.in);
+        String doThey = sc.nextLine();
+        String test = "yes";
+        if ((doThey==test)){
+            System.out.println("What's particle's name?");
+            String name = sc.nextLine();
+        }        
+        if (doThey=="no"){
+            String name = "?";
+            System.out.println("Is the particle light, medium, or heavy? (put ? if unknown)");
+            String mass = sc.nextLine();
+            System.out.println("What is the particle's charge (put ? if unknown)");
+            String charge = sc.nextLine();
+            System.out.println("What is the particle's spin (put ? if unknown)");
+            String spin = sc.nextLine(); 
+            System.out.println("What is the particle anti or regular (put ? if unknown)");
+            String regular = sc.nextLine();             
+        }
+        else
+            System.out.print("hi");
+        /*String known="";
         System.out.println("What's the particles name?");
         Scanner sc = new Scanner(System.in);
         known += sc.nextLine() + ",";
@@ -102,7 +123,7 @@ public class Main{
                 mass=str.substring(l+1,m);
                 break;
             }
-        }
+        }*/
 
     }
     
