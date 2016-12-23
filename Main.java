@@ -64,7 +64,7 @@ public class Main{
             String spin = sc.nextLine(); 
             System.out.println("What is the particle anti or regular (put ? if unknown)");
             String regular = sc.nextLine();     
-            Particle begin = new Particle(name, charge, spin, regular, mass);
+            Particle begin = new Particle(name, charge, spin, regular, mass);}
             System.out.println("Particle Summary: " + begin.toString());
 
 System.out.println("is there a second particle?");
