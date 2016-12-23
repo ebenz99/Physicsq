@@ -5,6 +5,7 @@
  */
 package physics;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 //import java.io.PrintStream;
 
@@ -17,10 +18,11 @@ public class Main{
     /**
      * @param args the command line arguments
      */
-    ArrayList<Particle> start = new ArrayList<Particle>();
+    //ArrayList<Particle> start = new ArrayList<Particle>();
     
     public static void main(String[] args) {
-         Particle up = new Particle("up quark");
+        ArrayList<Particle> start = new ArrayList<Particle>();
+        Particle up = new Particle("up quark");
         Particle down = new Particle("down quark");
         Particle charmed = new Particle("charmed quark");
         Particle strange = new Particle("strange quark");
@@ -50,7 +52,7 @@ public class Main{
         String charge = "";
         String spin = "";
         String regular = "";
-        String doThey = "";
+        String doThey = "Yes";
         System.out.println("How many particles do you start with?");
         Scanner sc = new Scanner(System.in);
         int startNum=sc.nextInt();
@@ -62,9 +64,9 @@ public class Main{
             if ((doThey.equals("yes"))){
                 System.out.println("What's particle's name?");
                 name = sc.nextLine();
-                start.addParticle(name);
+                start.add(new Particle(name));
                 //Particle begin = new Particle(name);
-                System.out.println("Particle Summary: " + begin.toString());
+                //System.out.println("Particle Summary: " + begin.toString());
             }        
             if (doThey.equals("no")){
                 /*String*/ name = "?";
@@ -76,18 +78,14 @@ public class Main{
                 /*String*/ spin = sc.nextLine(); 
                 System.out.println("What is the particle anti or regular (put ? if unknown)");
                 /*String*/ regular = sc.nextLine(); 
-                start.addParticle(name, charge, spin, regular, mass);
+                start.add(new Particle(name, charge, spin, regular, mass));
                 //Particle begin = new Particle(name, charge, spin, regular, mass);
-                System.out.println("Particle Summary: " + begin.toString());}
+                //System.out.println("Particle Summary: " + begin.toString());}
             }
             
-/*System.out.println("is there a second particle?");
-String answer = sc.nextLine();
-if(answer.equals("yes")){
-   }
 
-        }*/
 
     }
     
+}
 }
