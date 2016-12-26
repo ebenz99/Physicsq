@@ -6,6 +6,8 @@
 package physics;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 //import java.io.PrintStream;
 
@@ -18,10 +20,8 @@ public class Main{
     /**
      * @param args the command line arguments
      */
-    //ArrayList<Particle> start = new ArrayList<Particle>();
     
     public static void main(String[] args) {
-        ArrayList<Particle> start = new ArrayList<Particle>();
         Particle up = new Particle("up quark");
         Particle down = new Particle("down quark");
         Particle charmed = new Particle("charmed quark");
@@ -53,40 +53,128 @@ public class Main{
         String spin = "";
         String regular = "";
         String doThey = "Yes";
+
+        ArrayList<Particle> start = new ArrayList<Particle>();
+        ArrayList<Particle> end = new ArrayList<Particle>();
+        
         System.out.println("How many particles do you start with?");
         Scanner sci = new Scanner(System.in);
         int startNum=sci.nextInt();
         Scanner sc = new Scanner(System.in);
         
         for(int i=0; i<startNum; i++){
-            //doThey = sc.nextLine();
-        System.out.println("Do you know particle's name?");     
-            /*String*/ doThey = sc.nextLine();
+        System.out.println("Do you know particle's name? (yes or no)");     
+        doThey = sc.nextLine();
             if ((doThey.equals("yes"))){
                 System.out.println("What's particle's name?");
                 name = sc.nextLine();
                 start.add(new Particle(name));
-                //Particle begin = new Particle(name);
-                //System.out.println("Particle Summary: " + begin.toString());
             }        
             if (doThey.equals("no")){
-                /*String*/ name = "?";
+                name = "?";
                 System.out.println("Is the particle light, medium, or heavy? (put ? if unknown)");
-                /*String*/ mass = sc.nextLine();
+                mass = sc.nextLine();
                 System.out.println("What is the particle's charge (put ? if unknown)");
-                /*String*/ charge = sc.nextLine();
+                charge = sc.nextLine();
                 System.out.println("What is the particle's spin (put ? if unknown)");
-                /*String*/ spin = sc.nextLine(); 
+                spin = sc.nextLine(); 
                 System.out.println("What is the particle anti or regular (put ? if unknown)");
-                /*String*/ regular = sc.nextLine(); 
+                regular = sc.nextLine(); 
                 start.add(new Particle(name, charge, spin, regular, mass));
-                //Particle begin = new Particle(name, charge, spin, regular, mass);
-                //System.out.println("Particle Summary: " + begin.toString());}
+            }        
+        }
+
+        System.out.println("How many particles do you end with?");
+        Scanner scin = new Scanner(System.in);
+        int endNum=sci.nextInt();
+        Scanner scn = new Scanner(System.in);
+        
+        for(int i=0; i<endNum; i++){
+        System.out.println("Do you know particle's name? (yes or no)");     
+        doThey = sc .nextLine();
+            if ((doThey.equals("yes"))){
+                System.out.println("What's particle's name?");
+                name = scn.nextLine();
+                end.add(new Particle(name));
+            }        
+            if (doThey.equals("no")){
+                name = "?";
+                System.out.println("Is the particle light, medium, or heavy? (put ? if unknown)");
+                mass = scn.nextLine();
+                System.out.println("What is the particle's charge (put ? if unknown)");
+                charge = scn.nextLine();
+                System.out.println("What is the particle's spin (put ? if unknown)");
+                spin = scn.nextLine(); 
+                System.out.println("What is the particle anti or regular (put ? if unknown)");
+                regular = scn.nextLine(); 
+                end.add(new Particle(name, charge, spin, regular, mass));
+            }        
+        } 
+        
+        ArrayList<String> startCharges = new ArrayList<String>();
+        double startNetCharge = 0;
+        ArrayList<String> parts = new ArrayList<String>();
+        List<String> startChargeItems = new ArrayList<String>();
+        String[] intermediaryStart = new String[2];
+        String compartmentOneStart = "";
+        String compartmentTwoStart = "";
+        for(int i=0;i<startNum; i++){
+            if((!(((start.get(i)).getCharge().indexOf("/"))==-1))){
+                intermediaryStart=(((start.get(i)).getCharge()).split("/"));
+                compartmentOneStart = intermediaryStart[0];
+                compartmentTwoStart = intermediaryStart[1];
+                startChargeItems.add(compartmentOneStart);
+                startChargeItems.add(compartmentTwoStart);
+                //startChargeItems=(Arrays.asList(((start.get(i)).getCharge()).split("/")));
             }
-            
-
-
+            else{
+                startChargeItems.add((start.get(i)).getCharge());
+            }
+        }
+        double startChargeSum = 0;
+        for(int j=0; j<(startChargeItems.size()); j++){
+            if((Double.parseDouble(startChargeItems.get(j))==3)){
+                startChargeSum+=((Double.parseDouble(startChargeItems.get(j-1)))/3);
+                startChargeSum-=(Double.parseDouble(startChargeItems.get(j-1)));
+            }
+            else
+                startChargeSum+=(Double.parseDouble(startChargeItems.get(j)));
+        }
+        System.out.println(Arrays.toString(startChargeItems.toArray()));
+        System.out.println(startChargeSum);
+        
+        ////////////////////////////////////////////////////////////////////////////
+        
+        //ArrayList<String> startCharges = new ArrayList<String>();
+        ArrayList<String> endCharges = new ArrayList<String>();
+        double endNetCharge = 0;
+        List<String> endChargeItems = new ArrayList<String>();
+        String[] intermediaryEnd = new String[2];
+        String compartmentOneEnd = "";
+        String compartmentTwoEnd = "";
+        for(int i=0;i<endNum; i++){
+            if((!(((end.get(i)).getCharge().indexOf("/"))==-1))){
+                intermediaryEnd=(((end.get(i)).getCharge()).split("/"));
+                compartmentOneEnd = intermediaryEnd[0];
+                compartmentTwoEnd = intermediaryEnd[1];
+                endChargeItems.add(compartmentOneEnd);
+                endChargeItems.add(compartmentTwoEnd);
+            }
+            else{
+                endChargeItems.add((end.get(i)).getCharge());
+            }
+        }
+        double endChargeSum = 0;
+        for(int j=0; j<(endChargeItems.size()); j++){
+            if((Double.parseDouble(endChargeItems.get(j))==3)){
+                endChargeSum+=((Double.parseDouble(endChargeItems.get(j-1)))/3);
+                endChargeSum-=(Double.parseDouble(endChargeItems.get(j-1)));
+            }
+            else
+                endChargeSum+=(Double.parseDouble(endChargeItems.get(j)));
+        }
+        System.out.println(Arrays.toString(endChargeItems.toArray()));
+        System.out.println(endChargeSum);
+        
     }
-    
-}
 }

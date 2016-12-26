@@ -6,8 +6,8 @@
 package physics;
 
 /**
- *xczxczxcZXc
- * @author ethan.bensman
+ *
+ * @author jeff.bensman
  */
 public class Particle {
 //fields
@@ -428,6 +428,22 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
         System.out.println("Not a particle or not enough information");
     }
 }
+
+public String getName(){
+    return this.name;
+}
+public String getCharge(){
+    return this.charge;
+}
+public String getSpin(){
+    return this.spin;
+}
+public String getMass(){
+    return this.mass;
+}
+public String getRegular(){
+    return this.regular;
+}
     
 public boolean equals(Object other){
        if (!(other instanceof Particle)){
@@ -440,7 +456,10 @@ public boolean equals(Object other){
        else{
         return false;
        }  
-}  
+}
+    
+    
+    
     public String toString(){
      if(regular.equals("regular")){
       String reg = ("%n Your particle is the " + name + ". Its mass is " + mass + ", its charge is " + charge + ", and its spin is " + spin + ". It is a regular particle.");  
