@@ -7,6 +7,7 @@ package physics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 //import java.io.PrintStream;
 
@@ -115,7 +116,7 @@ public class Main{
         double startNetCharge = 0;
         double endNetCharge = 0;
         ArrayList<String> parts = new ArrayList<String>();
-        List <String> items = new <String> List;
+        List<String> items = new ArrayList<String>();
         for(int i=0;i<startNum; i++){
         items = Arrays.asList(((start.get(i)).getCharge()).split("/"));
         //parts.add(new String(((start.get(i)).getCharge()).split("/"));
