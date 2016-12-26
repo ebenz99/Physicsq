@@ -117,11 +117,22 @@ public class Main{
         double endNetCharge = 0;
         ArrayList<String> parts = new ArrayList<String>();
         List<String> items = new ArrayList<String>();
+        String[] intermediary = new String[2];
+        String compartmentOne = "";
+        String compartmentTwo = "";
         for(int i=0;i<startNum; i++){
-            if(((start.get(i)).getCharge().indexOf("0"))==-1)
-                items = Arrays.asList(((start.get(i)).getCharge()).split("/"));
-            else
+            if((((start.get(i)).getCharge().indexOf("0"))==-1)||(((start.get(i)).getCharge().indexOf("-1"))==-1)){
+                intermediary=(((start.get(i)).getCharge()).split("/"));
+                compartmentOne = intermediary[0];
+                compartmentTwo = intermediary[1];
+                items.add(compartmentOne);
+                items.add(compartmentTwo);
+                //items=(Arrays.asList(((start.get(i)).getCharge()).split("/")));
+            }
+            else{
                 items.add((start.get(i)).getCharge());
+                //items=(Arrays.asList(((start.get(i)).getCharge())));
+            }
         }
         System.out.println(Arrays.toString(items.toArray()));
         //String first = items.get(1);
