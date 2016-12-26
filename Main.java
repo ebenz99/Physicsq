@@ -134,7 +134,18 @@ public class Main{
                 //items=(Arrays.asList(((start.get(i)).getCharge())));
             }
         }
+        double sum = 0;
+        for(int j=0; j<(items.size()); j++){
+            //sum+=(Integer.parseInt(start.get(j).getCharge()));
+            if((Integer.parseInt(items.get(j))==3)){
+                sum+=((Integer.parseInt(items.get(j-1)))/3);
+                sum-=(Integer.parseInt(items.get(j-1)));
+            }
+            else
+                sum+=(Integer.parseInt(items.get(j)));
+        }
         System.out.println(Arrays.toString(items.toArray()));
+        System.out.println(sum);
         //String first = items.get(1);
         //String second = items.get(2);
         //String third = items.get(3);
