@@ -137,12 +137,12 @@ public class Main{
         double sum = 0;
         for(int j=0; j<(items.size()); j++){
             //sum+=(Integer.parseInt(start.get(j).getCharge()));
-            if((Integer.parseInt(items.get(j))==3)){
-                sum+=((Integer.parseInt(items.get(j-1)))/3);
-                sum-=(Integer.parseInt(items.get(j-1)));
+            if((Double.parseDouble(items.get(j))==3)){
+                sum+=((Double.parseDouble(items.get(j-1)))/3);
+                sum-=(Double.parseDouble(items.get(j-1)));
             }
             else
-                sum+=(Integer.parseInt(items.get(j)));
+                sum+=(Double.parseDouble(items.get(j)));
         }
         System.out.println(Arrays.toString(items.toArray()));
         System.out.println(sum);
