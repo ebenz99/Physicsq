@@ -20,7 +20,6 @@ public class Main{
     /**
      * @param args the command line arguments
      */
-    //ArrayList<Particle> start = new ArrayList<Particle>();
     
     public static void main(String[] args) {
         Particle up = new Particle("up quark");
@@ -111,49 +110,71 @@ public class Main{
                 end.add(new Particle(name, charge, spin, regular, mass));
             }        
         } 
+        
         ArrayList<String> startCharges = new ArrayList<String>();
-        ArrayList<String> endCharges = new ArrayList<String>();
         double startNetCharge = 0;
-        double endNetCharge = 0;
         ArrayList<String> parts = new ArrayList<String>();
-        List<String> items = new ArrayList<String>();
-        String[] intermediary = new String[2];
-        String compartmentOne = "";
-        String compartmentTwo = "";
+        List<String> startChargeItems = new ArrayList<String>();
+        String[] intermediaryStart = new String[2];
+        String compartmentOneStart = "";
+        String compartmentTwoStart = "";
         for(int i=0;i<startNum; i++){
-            if((!(((start.get(i)).getCharge().indexOf("/"))==-1))){//||(((start.get(i)).getCharge().indexOf("-1"))==-1)){
-                intermediary=(((start.get(i)).getCharge()).split("/"));
-                compartmentOne = intermediary[0];
-                compartmentTwo = intermediary[1];
-                items.add(compartmentOne);
-                items.add(compartmentTwo);
-                //items=(Arrays.asList(((start.get(i)).getCharge()).split("/")));
+            if((!(((start.get(i)).getCharge().indexOf("/"))==-1))){
+                intermediaryStart=(((start.get(i)).getCharge()).split("/"));
+                compartmentOneStart = intermediaryStart[0];
+                compartmentTwoStart = intermediaryStart[1];
+                startChargeItems.add(compartmentOneStart);
+                startChargeItems.add(compartmentTwoStart);
+                //startChargeItems=(Arrays.asList(((start.get(i)).getCharge()).split("/")));
             }
             else{
-                items.add((start.get(i)).getCharge());
-                //items=(Arrays.asList(((start.get(i)).getCharge())));
+                startChargeItems.add((start.get(i)).getCharge());
             }
         }
-        double sum = 0;
-        for(int j=0; j<(items.size()); j++){
-            //sum+=(Integer.parseInt(start.get(j).getCharge()));
-            if((Double.parseDouble(items.get(j))==3)){
-                sum+=((Double.parseDouble(items.get(j-1)))/3);
-                sum-=(Double.parseDouble(items.get(j-1)));
+        double startChargeSum = 0;
+        for(int j=0; j<(startChargeItems.size()); j++){
+            if((Double.parseDouble(startChargeItems.get(j))==3)){
+                startChargeSum+=((Double.parseDouble(startChargeItems.get(j-1)))/3);
+                startChargeSum-=(Double.parseDouble(startChargeItems.get(j-1)));
             }
             else
-                sum+=(Double.parseDouble(items.get(j)));
+                startChargeSum+=(Double.parseDouble(startChargeItems.get(j)));
         }
-        System.out.println(Arrays.toString(items.toArray()));
-        System.out.println(sum);
-        //String first = items.get(1);
-        //String second = items.get(2);
-        //String third = items.get(3);
-        //System.out.println(first); //+ "," + second + "," + third);
+        System.out.println(Arrays.toString(startChargeItems.toArray()));
+        System.out.println(startChargeSum);
+        
+        ////////////////////////////////////////////////////////////////////////////
+        
+        //ArrayList<String> startCharges = new ArrayList<String>();
+        ArrayList<String> endCharges = new ArrayList<String>();
+        double endNetCharge = 0;
+        List<String> endChargeItems = new ArrayList<String>();
+        String[] intermediaryEnd = new String[2];
+        String compartmentOneEnd = "";
+        String compartmentTwoEnd = "";
+        for(int i=0;i<endNum; i++){
+            if((!(((end.get(i)).getCharge().indexOf("/"))==-1))){
+                intermediaryEnd=(((end.get(i)).getCharge()).split("/"));
+                compartmentOneEnd = intermediaryEnd[0];
+                compartmentTwoEnd = intermediaryEnd[1];
+                endChargeItems.add(compartmentOneEnd);
+                endChargeItems.add(compartmentTwoEnd);
+            }
+            else{
+                endChargeItems.add((end.get(i)).getCharge());
+            }
+        }
+        double endChargeSum = 0;
+        for(int j=0; j<(endChargeItems.size()); j++){
+            if((Double.parseDouble(endChargeItems.get(j))==3)){
+                endChargeSum+=((Double.parseDouble(endChargeItems.get(j-1)))/3);
+                endChargeSum-=(Double.parseDouble(endChargeItems.get(j-1)));
+            }
+            else
+                endChargeSum+=(Double.parseDouble(endChargeItems.get(j)));
+        }
+        System.out.println(Arrays.toString(endChargeItems.toArray()));
+        System.out.println(endChargeSum);
+        
     }
 }
-        //parts.add(new String(((start.get(i)).getCharge()).split("/"));
-        //    startNetCharge = Double.parseDouble((start.get(i)).getCharge());
-        //}
-        //for(int i=0;i<endNum; i++){
-        //    endNetCharge = Double.parseDouble((end.get(i)).getCharge());
