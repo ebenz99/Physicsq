@@ -18,6 +18,7 @@ public class Main{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //fake code
         //do you know charge?
         //knowCharge=true
         Particle up = new Particle("up quark");
