@@ -7,7 +7,7 @@ package physics;
 
 /**
  *
- * @author jeff.bensman
+ * @author ethan.bensman
  */
 public class Particle {
 //fields
