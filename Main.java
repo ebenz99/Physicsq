@@ -1,14 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package physics;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+//import java.io.PrintStream;
 
 /**
  *
  * @author ethan.bensman
  */
-
 public class Main{
+
+    /**
+     * @param args the command line arguments
+     */
+    //ArrayList<Particle> start = new ArrayList<Particle>();
+    
     public static void main(String[] args) {
         Particle up = new Particle("up quark");
         Particle down = new Particle("down quark");
@@ -73,30 +85,45 @@ public class Main{
         }
 
         System.out.println("How many particles do you end with?");
-        Scanner sci2 = new Scanner(System.in);
+        Scanner scin = new Scanner(System.in);
         int endNum=sci.nextInt();
-        Scanner sc2 = new Scanner(System.in);
+        Scanner scn = new Scanner(System.in);
         
         for(int i=0; i<endNum; i++){
         System.out.println("Do you know particle's name?");     
-        doThey = sc2.nextLine();
+        doThey = sc .nextLine();
             if ((doThey.equals("yes"))){
                 System.out.println("What's particle's name?");
-                name = sc2.nextLine();
+                name = scn.nextLine();
                 end.add(new Particle(name));
             }        
             if (doThey.equals("no")){
                 name = "?";
                 System.out.println("Is the particle light, medium, or heavy? (put ? if unknown)");
-                mass = sc2.nextLine();
+                mass = scn.nextLine();
                 System.out.println("What is the particle's charge (put ? if unknown)");
-                charge = sc2.nextLine();
+                charge = scn.nextLine();
                 System.out.println("What is the particle's spin (put ? if unknown)");
-                spin = sc2.nextLine(); 
+                spin = scn.nextLine(); 
                 System.out.println("What is the particle anti or regular (put ? if unknown)");
-                regular = sc2.nextLine(); 
+                regular = scn.nextLine(); 
                 end.add(new Particle(name, charge, spin, regular, mass));
             }        
         } 
+        ArrayList<String> startCharges = new ArrayList<String>();
+        ArrayList<String> endCharges = new ArrayList<String>();
+        double startNetCharge = 0;
+        double endNetCharge = 0;
+        ArrayList<String> parts = new ArrayList<String>();
+        List <String> items = new <String> List;
+        for(int i=0;i<startNum; i++){
+        items = Arrays.asList(((start.get(i)).getCharge()).split("/"));
+        //parts.add(new String(((start.get(i)).getCharge()).split("/"));
+        //    startNetCharge = Double.parseDouble((start.get(i)).getCharge());
+        //}
+        //for(int i=0;i<endNum; i++){
+        //    endNetCharge = Double.parseDouble((end.get(i)).getCharge());
+        }
+        //System.out.println(startNetCharge);
     }
 }
