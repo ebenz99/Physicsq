@@ -64,7 +64,7 @@ public class Main{
         Scanner sc = new Scanner(System.in);
         
         for(int i=0; i<startNum; i++){
-        System.out.println("Do you know particle's name?");     
+        System.out.println("Do you know particle's name? (yes or no)");     
         doThey = sc.nextLine();
             if ((doThey.equals("yes"))){
                 System.out.println("What's particle's name?");
@@ -91,7 +91,7 @@ public class Main{
         Scanner scn = new Scanner(System.in);
         
         for(int i=0; i<endNum; i++){
-        System.out.println("Do you know particle's name?");     
+        System.out.println("Do you know particle's name? (yes or no)");     
         doThey = sc .nextLine();
             if ((doThey.equals("yes"))){
                 System.out.println("What's particle's name?");
@@ -118,13 +118,20 @@ public class Main{
         ArrayList<String> parts = new ArrayList<String>();
         List<String> items = new ArrayList<String>();
         for(int i=0;i<startNum; i++){
-        items = Arrays.asList(((start.get(i)).getCharge()).split("/"));
+            if(((start.get(i)).getCharge().indexOf("0"))==-1)
+                items = Arrays.asList(((start.get(i)).getCharge()).split("/"));
+            else
+                items.add((start.get(i)).getCharge());
+        }
+        System.out.println(Arrays.toString(items.toArray()));
+        //String first = items.get(1);
+        //String second = items.get(2);
+        //String third = items.get(3);
+        //System.out.println(first); //+ "," + second + "," + third);
+    }
+}
         //parts.add(new String(((start.get(i)).getCharge()).split("/"));
         //    startNetCharge = Double.parseDouble((start.get(i)).getCharge());
         //}
         //for(int i=0;i<endNum; i++){
         //    endNetCharge = Double.parseDouble((end.get(i)).getCharge());
-        }
-        //System.out.println(startNetCharge);
-    }
-}
