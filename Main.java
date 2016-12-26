@@ -121,7 +121,7 @@ public class Main{
         String compartmentOne = "";
         String compartmentTwo = "";
         for(int i=0;i<startNum; i++){
-            if((((start.get(i)).getCharge().indexOf("0"))==-1)||(((start.get(i)).getCharge().indexOf("-1"))==-1)){
+            if((!(((start.get(i)).getCharge().indexOf("/"))==-1))){//||(((start.get(i)).getCharge().indexOf("-1"))==-1)){
                 intermediary=(((start.get(i)).getCharge()).split("/"));
                 compartmentOne = intermediary[0];
                 compartmentTwo = intermediary[1];
