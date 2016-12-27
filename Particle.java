@@ -11,6 +11,7 @@ package physics;
  */
 public class Particle {
 //fields
+    //ADD BOSONS
 public static final String NAME_UP = "up quark";
 public static final String NAME_DOWN = "down quark";
 public static final String NAME_CHARMED = "charmed quark";
@@ -497,6 +498,9 @@ public String getMass(){
 }
 public String getRegular(){
     return this.regular;
+}
+public String getGroup(){
+    return this.group;
 }
     
 public boolean equals(Object other){
