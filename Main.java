@@ -180,5 +180,10 @@ public class Main{
         System.out.println("these are the end particle charges: " + Arrays.toString(endChargeItems.toArray()));
         System.out.println("this is the end net charge: " + endChargeSum);
         
+        ArrayList<String> startGroup = new ArrayList<String>();
+        for(int q=0; q<startNum; q++){
+            startGroup.add((((start.get(q)).getGroup())));
+        }
     }
 }
+//MAKE METHOD TO CHECK ARRAYLISTS FOR CERTAIN VALUES (i.e. are there any quarks)
