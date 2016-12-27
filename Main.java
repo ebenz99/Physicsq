@@ -52,6 +52,7 @@ public class Main{
         String charge = "";
         String spin = "";
         String regular = "";
+        String group = "";
         String doThey = "Yes";
 
         ArrayList<Particle> start = new ArrayList<Particle>();
@@ -80,7 +81,9 @@ public class Main{
                 spin = sc.nextLine(); 
                 System.out.println("What is the particle anti or regular (put ? if unknown)");
                 regular = sc.nextLine(); 
-                start.add(new Particle(name, charge, spin, regular, mass));
+                System.out.println("Is the particle a lepton or a quark (put ? if unknown)");
+                group = sc.nextLine(); 
+                start.add(new Particle(name, charge, spin, regular, mass, group));
             }        
         }
 
@@ -107,7 +110,9 @@ public class Main{
                 spin = scn.nextLine(); 
                 System.out.println("What is the particle anti or regular (put ? if unknown)");
                 regular = scn.nextLine(); 
-                end.add(new Particle(name, charge, spin, regular, mass));
+                System.out.println("Is the particle a lepton or a quark (put ? if unknown)");
+                group = scn.nextLine(); 
+                end.add(new Particle(name, charge, spin, regular, mass, group));
             }        
         } 
         
@@ -140,12 +145,11 @@ public class Main{
             else
                 startChargeSum+=(Double.parseDouble(startChargeItems.get(j)));
         }
-        System.out.println(Arrays.toString(startChargeItems.toArray()));
-        System.out.println(startChargeSum);
+        System.out.println("these are the initial particle charges: " + Arrays.toString(startChargeItems.toArray()));
+        System.out.println("this is the initial net charge: " + startChargeSum);
         
         ////////////////////////////////////////////////////////////////////////////
         
-        //ArrayList<String> startCharges = new ArrayList<String>();
         ArrayList<String> endCharges = new ArrayList<String>();
         double endNetCharge = 0;
         List<String> endChargeItems = new ArrayList<String>();
@@ -173,8 +177,8 @@ public class Main{
             else
                 endChargeSum+=(Double.parseDouble(endChargeItems.get(j)));
         }
-        System.out.println(Arrays.toString(endChargeItems.toArray()));
-        System.out.println(endChargeSum);
+        System.out.println("these are the end particle charges: " + Arrays.toString(endChargeItems.toArray()));
+        System.out.println("this is the end net charge: " + endChargeSum);
         
     }
 }
