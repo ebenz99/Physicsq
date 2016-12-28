@@ -32,59 +32,41 @@ public class Main{
         Particle antiElectronNeutrino = new Particle("anti electron neutrino");
         Particle antiMuonNeutrino = new Particle("anti muon neutrino");
         Particle antiTauNeutrino = new Particle("anti tau neutrino");
-     
+
+    ArrayList<Particle> start = listParticles("start");
+    double startChargeSum = chargeSum(chargeList(start));
+    System.out.println("this is the end net charge: " + startChargeSum);        
+    
+    ArrayList<Particle> end = listParticles("end");
+    double endChargeSum = chargeSum(chargeList(end));
+    System.out.println("this is the end net charge: " + endChargeSum);
+}
+
+///////////END OF MAIN METHOD/////////////END OF MAIN METHOD///////////////////////////////////////
+    
+    public static ArrayList<Particle> listParticles(String where){
+        ArrayList<Particle> particles = new ArrayList<Particle>();    
+        if(where.equals("start"))
+            System.out.println("How many particles do you start with?");
+        if(where.equals("end"))
+            System.out.println("How many particles do you end with?");
+        Scanner scin = new Scanner(System.in);
+        int particlesNum=scin.nextInt();
+        Scanner scn = new Scanner(System.in);
+        String doThey = "";
         String name = "";
         String mass = "";
-        String charge = "";
         String spin = "";
+        String charge = "";
         String regular = "";
-        String group = "";
-        String doThey = "Yes";
-
-        ArrayList<Particle> start = new ArrayList<Particle>();
-        ArrayList<Particle> end = new ArrayList<Particle>();
-        
-        System.out.println("How many particles do you start with?");
-        Scanner sci = new Scanner(System.in);
-        int startNum=sci.nextInt();
-        Scanner sc = new Scanner(System.in);
-        
-        for(int i=0; i<startNum; i++){
+        String group = ""; 
+        for(int i=0; i<particlesNum; i++){
         System.out.println("Do you know particle's name? (yes or no)");     
-        doThey = sc.nextLine();
-            if ((doThey.equals("yes"))){
-                System.out.println("What's particle's name?");
-                name = sc.nextLine();
-                start.add(new Particle(name));
-            }        
-            if (doThey.equals("no")){
-                name = "?";
-                System.out.println("Is the particle light, medium, or heavy? (put ? if unknown)");
-                mass = sc.nextLine();
-                System.out.println("What is the particle's charge (put ? if unknown)");
-                charge = sc.nextLine();
-                System.out.println("What is the particle's spin (put ? if unknown)");
-                spin = sc.nextLine(); 
-                System.out.println("What is the particle anti or regular (put ? if unknown)");
-                regular = sc.nextLine(); 
-                System.out.println("Is the particle a lepton or a quark (put ? if unknown)");
-                group = sc.nextLine(); 
-                start.add(new Particle(name, charge, spin, regular, mass, group));
-            }        
-        }
-
-        System.out.println("How many particles do you end with?");
-        Scanner scin = new Scanner(System.in);
-        int endNum=sci.nextInt();
-        Scanner scn = new Scanner(System.in);
-        
-        for(int i=0; i<endNum; i++){
-        System.out.println("Do you know particle's name? (yes or no)");     
-        doThey = sc .nextLine();
+        doThey = scn.nextLine();
             if ((doThey.equals("yes"))){
                 System.out.println("What's particle's name?");
                 name = scn.nextLine();
-                end.add(new Particle(name));
+                particles.add(new Particle(name));
             }        
             if (doThey.equals("no")){
                 name = "?";
@@ -98,18 +80,11 @@ public class Main{
                 regular = scn.nextLine(); 
                 System.out.println("Is the particle a lepton or a quark (put ? if unknown)");
                 group = scn.nextLine(); 
-                end.add(new Particle(name, charge, spin, regular, mass, group));
+                particles.add(new Particle(name, charge, spin, regular, mass, group));
             }        
-        }        
-
-    double startChargeSum = chargeSum(chargeList(start));
-    System.out.println("this is the end net charge: " + startChargeSum);        
-        
-    double endChargeSum = chargeSum(chargeList(end));
-    System.out.println("this is the end net charge: " + endChargeSum);
-}
-
-///////////END OF MAIN METHOD/////////////END OF MAIN METHOD///////////////////////////////////////    
+        }  
+        return particles;
+    }
     
     public static List<String> chargeList(ArrayList<Particle> startOrEnd){
        double startOrEndNetCharge = 0;
@@ -146,3 +121,15 @@ public class Main{
         return startOrEndChargeSum;
     }
 }
+//MAKE METHOD TO CHECK ARRAYLISTS FOR CERTAIN VALUES (i.e. are there any quarks)
+
+/*public void Fit(ArrayList<String> start, ArrayList<String> end, ArrayList<String> startCharges, ArrayList<String> endCharges, int startNetCharge, int endNetCharge){
+
+}
+
+        ArrayList<String> startGroup = new ArrayList<String>();
+        for(int q=0; q<startNum; q++){
+            startGroup.add((((start.get(q)).getGroup())));
+        }
+
+*/
