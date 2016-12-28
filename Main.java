@@ -8,42 +8,18 @@ import java.util.Scanner;
 public class Main{
     
     public static void main(String[] args) {
-        Particle up = new Particle("up quark");
-        Particle down = new Particle("down quark");
-        Particle charmed = new Particle("charmed quark");
-        Particle strange = new Particle("strange quark");
-        Particle top = new Particle("top quark");
-        Particle bottom = new Particle("bottom quark");
-        Particle electron = new Particle("electron");
-        Particle muon = new Particle("muon");
-        Particle tauon = new Particle("tauon");
-        Particle electronNeutrino = new Particle("electron neutrino");
-        Particle muonNeutrino = new Particle("muon neutrino");
-        Particle tauNeutrino = new Particle("tau neutrino");
-        Particle antiUp = new Particle("anti up quark");
-        Particle antiDown = new Particle("anti down quark");
-        Particle antiCharmed = new Particle("anti charmed quark");
-        Particle antiStrange = new Particle("anti strange quark");
-        Particle antiTop = new Particle("anti top quark");
-        Particle antiBottom = new Particle("anti bottom quark");
-        Particle antiElectron = new Particle("anti electron");
-        Particle antiMuon = new Particle("anti muon");
-        Particle antiTauon = new Particle("anti tauon");
-        Particle antiElectronNeutrino = new Particle("anti electron neutrino");
-        Particle antiMuonNeutrino = new Particle("anti muon neutrino");
-        Particle antiTauNeutrino = new Particle("anti tau neutrino");
-
-    ArrayList<Particle> start = listParticles("start");
-    double startChargeSum = chargeSum(chargeList(start));
-    System.out.println("this is the end net charge: " + startChargeSum);        
+        ArrayList<Particle> start = listParticles("start");
+        double startChargeSum = chargeSum(chargeList(start));
+        System.out.println("this is the end net charge: " + startChargeSum);        
     
-    ArrayList<Particle> end = listParticles("end");
-    double endChargeSum = chargeSum(chargeList(end));
-    System.out.println("this is the end net charge: " + endChargeSum);
-}
-
+        ArrayList<Particle> end = listParticles("end");
+        double endChargeSum = chargeSum(chargeList(end));
+        System.out.println("this is the end net charge: " + endChargeSum);
+    }
 ///////////END OF MAIN METHOD/////////////END OF MAIN METHOD///////////////////////////////////////
-    
+
+
+//////////LIST INPUT PARTICLES/////////////////LIST INPUT PARTICLES////////////////    
     public static ArrayList<Particle> listParticles(String where){
         ArrayList<Particle> particles = new ArrayList<Particle>();    
         if(where.equals("start"))
@@ -86,6 +62,8 @@ public class Main{
         return particles;
     }
     
+    
+////////LIST CHARGES////////////////////LIST CHARGES///////////////////////    
     public static List<String> chargeList(ArrayList<Particle> startOrEnd){
        double startOrEndNetCharge = 0;
        int num = startOrEnd.size();
@@ -107,7 +85,9 @@ public class Main{
         }
         return startOrEndChargeItems;
     }
-
+    
+    
+///////////SUM CHARGES//////////////////SUM CHARGES////////////////////////////////
     public static double chargeSum(List<String> startOrEndCharges){        
         double startOrEndChargeSum = 0;
         for(int j=0; j<(startOrEndCharges.size()); j++){
@@ -120,6 +100,33 @@ public class Main{
         }
         return startOrEndChargeSum;
     }
+    
+    
+//////////PRESET PARTICLES/////////////////PRESET PARTICLES///////////////////////
+    public static final Particle up = new Particle("up quark");
+    public static final Particle down = new Particle("down quark");
+    public static final Particle charmed = new Particle("charmed quark");
+    public static final Particle strange = new Particle("strange quark");
+    public static final Particle top = new Particle("top quark");
+    public static final Particle bottom = new Particle("bottom quark");
+    public static final Particle electron = new Particle("electron");
+    public static final Particle muon = new Particle("muon");
+    public static final Particle tauon = new Particle("tauon");
+    public static final Particle electronNeutrino = new Particle("electron neutrino");
+    public static final Particle muonNeutrino = new Particle("muon neutrino");
+    public static final Particle tauNeutrino = new Particle("tau neutrino");
+    public static final Particle antiUp = new Particle("anti up quark");
+    public static final Particle antiDown = new Particle("anti down quark");
+    public static final Particle antiCharmed = new Particle("anti charmed quark");
+    public static final Particle antiStrange = new Particle("anti strange quark");
+    public static final Particle antiTop = new Particle("anti top quark");
+    public static final Particle antiBottom = new Particle("anti bottom quark");
+    public static final Particle antiElectron = new Particle("anti electron");
+    public static final Particle antiMuon = new Particle("anti muon");
+    public static final Particle antiTauon = new Particle("anti tauon");
+    public static final Particle antiElectronNeutrino = new Particle("anti electron neutrino");
+    public static final Particle antiMuonNeutrino = new Particle("anti muon neutrino");
+    public static final Particle antiTauNeutrino = new Particle("anti tau neutrino");
 }
 //MAKE METHOD TO CHECK ARRAYLISTS FOR CERTAIN VALUES (i.e. are there any quarks)
 
