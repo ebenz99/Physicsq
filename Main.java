@@ -1,25 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package physics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-//import java.io.PrintStream;
 
-/**
- *
- * @author ethan.bensman
- */
 public class Main{
-
-    /**
-     * @param args the command line arguments
-     */
     
     public static void main(String[] args) {
         Particle up = new Particle("up quark");
@@ -114,76 +100,49 @@ public class Main{
                 group = scn.nextLine(); 
                 end.add(new Particle(name, charge, spin, regular, mass, group));
             }        
-        } 
+        }        
+
+    double startChargeSum = chargeSum(chargeList(start));
+    System.out.println("this is the end net charge: " + startChargeSum);        
         
-        ArrayList<String> startCharges = new ArrayList<String>();
-        double startNetCharge = 0;
-        ArrayList<String> parts = new ArrayList<String>();
-        List<String> startChargeItems = new ArrayList<String>();
-        String[] intermediaryStart = new String[2];
-        String compartmentOneStart = "";
-        String compartmentTwoStart = "";
-        for(int i=0;i<startNum; i++){
-            if((!(((start.get(i)).getCharge().indexOf("/"))==-1))){
-                intermediaryStart=(((start.get(i)).getCharge()).split("/"));
-                compartmentOneStart = intermediaryStart[0];
-                compartmentTwoStart = intermediaryStart[1];
-                startChargeItems.add(compartmentOneStart);
-                startChargeItems.add(compartmentTwoStart);
-                //startChargeItems=(Arrays.asList(((start.get(i)).getCharge()).split("/")));
+    double endChargeSum = chargeSum(chargeList(end));
+    System.out.println("this is the end net charge: " + endChargeSum);
+}
+
+///////////END OF MAIN METHOD/////////////END OF MAIN METHOD///////////////////////////////////////    
+    
+    public static List<String> chargeList(ArrayList<Particle> startOrEnd){
+       double startOrEndNetCharge = 0;
+       int num = startOrEnd.size();
+        List<String> startOrEndChargeItems = new ArrayList<String>();
+        String[] intermediaryStartOrEnd = new String[2];
+        String compartmentOneStartOrEnd = "";
+        String compartmentTwoStartOrEnd = "";
+        for(int i=0;i<num; i++){
+            if((!(((startOrEnd.get(i)).getCharge().indexOf("/"))==-1))){
+                intermediaryStartOrEnd=(((startOrEnd.get(i)).getCharge()).split("/"));
+                compartmentOneStartOrEnd = intermediaryStartOrEnd[0];
+                compartmentTwoStartOrEnd = intermediaryStartOrEnd[1];
+                startOrEndChargeItems.add(compartmentOneStartOrEnd);
+                startOrEndChargeItems.add(compartmentTwoStartOrEnd);
             }
             else{
-                startChargeItems.add((start.get(i)).getCharge());
+                startOrEndChargeItems.add((startOrEnd.get(i)).getCharge());
             }
         }
-        double startChargeSum = 0;
-        for(int j=0; j<(startChargeItems.size()); j++){
-            if((Double.parseDouble(startChargeItems.get(j))==3)){
-                startChargeSum+=((Double.parseDouble(startChargeItems.get(j-1)))/3);
-                startChargeSum-=(Double.parseDouble(startChargeItems.get(j-1)));
-            }
-            else
-                startChargeSum+=(Double.parseDouble(startChargeItems.get(j)));
-        }
-        System.out.println("these are the initial particle charges: " + Arrays.toString(startChargeItems.toArray()));
-        System.out.println("this is the initial net charge: " + startChargeSum);
-        
-        ////////////////////////////////////////////////////////////////////////////
-        
-        ArrayList<String> endCharges = new ArrayList<String>();
-        double endNetCharge = 0;
-        List<String> endChargeItems = new ArrayList<String>();
-        String[] intermediaryEnd = new String[2];
-        String compartmentOneEnd = "";
-        String compartmentTwoEnd = "";
-        for(int i=0;i<endNum; i++){
-            if((!(((end.get(i)).getCharge().indexOf("/"))==-1))){
-                intermediaryEnd=(((end.get(i)).getCharge()).split("/"));
-                compartmentOneEnd = intermediaryEnd[0];
-                compartmentTwoEnd = intermediaryEnd[1];
-                endChargeItems.add(compartmentOneEnd);
-                endChargeItems.add(compartmentTwoEnd);
-            }
-            else{
-                endChargeItems.add((end.get(i)).getCharge());
-            }
-        }
-        double endChargeSum = 0;
-        for(int j=0; j<(endChargeItems.size()); j++){
-            if((Double.parseDouble(endChargeItems.get(j))==3)){
-                endChargeSum+=((Double.parseDouble(endChargeItems.get(j-1)))/3);
-                endChargeSum-=(Double.parseDouble(endChargeItems.get(j-1)));
+        return startOrEndChargeItems;
+    }
+
+    public static double chargeSum(List<String> startOrEndCharges){        
+        double startOrEndChargeSum = 0;
+        for(int j=0; j<(startOrEndCharges.size()); j++){
+            if((Double.parseDouble(startOrEndCharges.get(j))==3)){
+                startOrEndChargeSum+=((Double.parseDouble(startOrEndCharges.get(j-1)))/3);
+                startOrEndChargeSum-=(Double.parseDouble(startOrEndCharges.get(j-1)));
             }
             else
-                endChargeSum+=(Double.parseDouble(endChargeItems.get(j)));
+                startOrEndChargeSum+=(Double.parseDouble(startOrEndCharges.get(j)));
         }
-        System.out.println("these are the end particle charges: " + Arrays.toString(endChargeItems.toArray()));
-        System.out.println("this is the end net charge: " + endChargeSum);
-        
-        ArrayList<String> startGroup = new ArrayList<String>();
-        for(int q=0; q<startNum; q++){
-            startGroup.add((((start.get(q)).getGroup())));
-        }
+        return startOrEndChargeSum;
     }
 }
-//MAKE METHOD TO CHECK ARRAYLISTS FOR CERTAIN VALUES (i.e. are there any quarks)
