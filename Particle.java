@@ -475,26 +475,55 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
     }
 }
 
-public String getName(){
-    return this.name;
-}
-public String getCharge(){
-    return this.charge;
-}
-public String getSpin(){
-    return this.spin;
-}
-public String getMass(){
-    return this.mass;
-}
-public String getRegular(){
-    return this.regular;
-}
-public String getType(){
-    return this.type;
-}
+    public String getName(){
+        return this.name;
+    }
+    public String getCharge(){
+        return this.charge;
+    }
+    public String getSpin(){
+        return this.spin;
+    }
+    public String getMass(){
+        return this.mass;
+    }
+    public String getRegular(){
+        return this.regular;
+    }
+    public String getType(){
+        return this.type;
+    }
     
-public boolean equals(Object other){
+    public void setName(String myName){
+        name = myName;
+    }
+    public void setCharge(String myCharge){
+        charge = myCharge;
+    }
+    public void setSpin(String mySpin){
+        spin = mySpin;
+    }
+    public void setMass(String myMass){
+        mass = myMass;
+    }    
+    public void setRegular(String myRegular){
+        regular = myRegular;
+    }
+    public void setType(String myType){
+        type = myType;
+    }    
+
+    public String makeNameRegular(){
+        int length =  (this.name.length());
+        name = (this.name).substring(5,length);
+        return name;
+    }
+    public String makeNameAnti(){
+        name = "anti" + (this.name);
+        return name;
+    }
+    
+    public boolean equals(Object other){
        if (!(other instanceof Particle)){
          return false;
        }
@@ -505,7 +534,7 @@ public boolean equals(Object other){
        else{
         return false;
        }  
-}
+    }
     
     
     
