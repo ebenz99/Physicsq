@@ -35,7 +35,7 @@ public class Main{
         String spin = "";
         String charge = "";
         String regular = "";
-        String group = ""; 
+        String type = ""; 
         for(int i=0; i<particlesNum; i++){
         System.out.println("Do you know particle's name? (yes or no)");     
         doThey = scn.nextLine();
@@ -55,8 +55,8 @@ public class Main{
                 System.out.println("What is the particle anti or regular (put ? if unknown)");
                 regular = scn.nextLine(); 
                 System.out.println("Is the particle a lepton or a quark (put ? if unknown)");
-                group = scn.nextLine(); 
-                particles.add(new Particle(name, charge, spin, regular, mass, group));
+                type = scn.nextLine(); 
+                particles.add(new Particle(name, charge, spin, regular, mass, type));
             }        
         }  
         return particles;
@@ -101,6 +101,28 @@ public class Main{
         return startOrEndChargeSum;
     }
     
+    public static List<String> typeList(ArrayList<Particle> startOrEnd){
+        int num = startOrEnd.size();
+        List<String> startOrEndTypeItems = new ArrayList<String>();
+        for(int i=0;i<num; i++){
+                startOrEndTypeItems.add(((startOrEnd.get(i)).getType()));
+        }
+        return startOrEndTypeItems;
+    }
+    
+    
+    public static boolean areTheyQuarks(ArrayList<Particle> TypeItems){
+        int n = 0;
+        for(int j=0; j<TypeItems.size(); j++){
+            if(((TypeItems.get(j)).equals("fermion"))){
+                n++;
+            }
+        }
+        if(n>0)
+            return false;
+        else
+            return true;
+    }
     
 //////////PRESET PARTICLES/////////////////PRESET PARTICLES///////////////////////
     public static final Particle up = new Particle("up quark");
@@ -134,9 +156,9 @@ public class Main{
 
 }
 
-        ArrayList<String> startGroup = new ArrayList<String>();
+        ArrayList<String> startType = new ArrayList<String>();
         for(int q=0; q<startNum; q++){
-            startGroup.add((((start.get(q)).getGroup())));
+            startType.add((((start.get(q)).getType())));
         }
 
 */
