@@ -124,6 +124,26 @@ public class Main{
         else
             return true;
     }
+    
+//LIST MASSES
+    public static List<String> massList(ArrayList<Particle> startOrEnd){
+        int num = startOrEnd.size();
+        List<String> startOrEndMassItems = new ArrayList<String>();
+        for(int i=0; i<num; i++){
+                startOrEndMassItems.add(((startOrEnd.get(i)).getMass()));
+        }
+        return startOrEndMassItems;
+    }
+    
+//ARRANGE MASSES/////////////////INCOMPLETE
+    public static List<String> arrangeMassList(List<String> massList){
+        int num = massList.size();
+        List<String> startOrEndArrangedMassItems = new ArrayList<String>();
+        for(int i=0; i<num; i++){
+                startOrEndArrangedMassItems.add(((massList.get(i)).getMass()));
+        }
+        return startOrEndArrangedMassItems;
+    }
 
 ////////////////FULL FIT////////////////////FULL FIT//////////////////////////////////////
     /*public ArrayList<String> Fit(ArrayList<Particle> startParticles, ArrayList<Particle> endParticles){
