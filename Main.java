@@ -101,6 +101,7 @@ public class Main{
         return startOrEndChargeSum;
     }
     
+    ////////LIST PARTICLE TYPES/////////////LIST PARTICLE TYPES/////////////
     public static List<String> typeList(ArrayList<Particle> startOrEnd){
         int num = startOrEnd.size();
         List<String> startOrEndTypeItems = new ArrayList<String>();
@@ -110,11 +111,11 @@ public class Main{
         return startOrEndTypeItems;
     }
     
-    
-    public static boolean areTheyQuarks(ArrayList<Particle> TypeItems){
+    //////////CHECK FOR QUARKS////////////CHECK FOR QUARKS////////////////////
+    public static boolean areTheyQuarks(List<String> TypeItems){
         int n = 0;
         for(int j=0; j<TypeItems.size(); j++){
-            if(((TypeItems.get(j)).equals("fermion"))){
+            if(((TypeItems.get(j)).equals("lepton"))){
                 n++;
             }
         }
@@ -123,6 +124,16 @@ public class Main{
         else
             return true;
     }
+
+////////////////FULL FIT////////////////////FULL FIT//////////////////////////////////////
+    /*public ArrayList<String> Fit(ArrayList<Particle> startParticles, ArrayList<Particle> endParticles){
+        boolean gluon = areTheyQuarks(typeList(startParticles));
+        double chargeDifference = ((chargeSum(chargeList(endParticles)))-(chargeSum(chargeList(endParticles))));
+        ///put in boson to account for side change
+        //see if particle type is same between start and end, account for differences in name
+    }
+*/
+
     
 //////////PRESET PARTICLES/////////////////PRESET PARTICLES///////////////////////
     public static final Particle up = new Particle("up quark");
@@ -150,15 +161,3 @@ public class Main{
     public static final Particle antiMuonNeutrino = new Particle("anti muon neutrino");
     public static final Particle antiTauNeutrino = new Particle("anti tau neutrino");
 }
-//MAKE METHOD TO CHECK ARRAYLISTS FOR CERTAIN VALUES (i.e. are there any quarks)
-
-/*public void Fit(ArrayList<String> start, ArrayList<String> end, ArrayList<String> startCharges, ArrayList<String> endCharges, int startNetCharge, int endNetCharge){
-
-}
-
-        ArrayList<String> startType = new ArrayList<String>();
-        for(int q=0; q<startNum; q++){
-            startType.add((((start.get(q)).getType())));
-        }
-
-*/
