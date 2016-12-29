@@ -125,7 +125,7 @@ public class Main{
             return true;
     }
     
-//LIST MASSES
+//////////////LIST MASSES/////////////////LIST MASSES//////////////////////////
     public static List<String> massList(ArrayList<Particle> startOrEnd){
         int num = startOrEnd.size();
         List<String> startOrEndMassItems = new ArrayList<String>();
@@ -135,14 +135,35 @@ public class Main{
         return startOrEndMassItems;
     }
     
-//ARRANGE MASSES/////////////////INCOMPLETE
+////////ARRANGE MASSES/////////////////////ARRANGE MASSES///////////////////////
     public static List<String> arrangeMassList(List<String> massList){
         int num = massList.size();
         List<String> startOrEndArrangedMassItems = new ArrayList<String>();
         for(int i=0; i<num; i++){
-                startOrEndArrangedMassItems.add(((massList.get(i)).getMass()));
+            if((massList.get(i)).equals("light")){
+                startOrEndArrangedMassItems.add(massList.get(i));
+            }
         }
+        for(int j=0; j<num; j++){
+            if((massList.get(j)).equals("medium")){
+                startOrEndArrangedMassItems.add(massList.get(j));
+            }
+        }
+        for(int k=0; k<num; k++){
+            if((massList.get(k)).equals("heavy")){
+                startOrEndArrangedMassItems.add(massList.get(k));
+            }
+        }        
         return startOrEndArrangedMassItems;
+    }
+    
+    public static void makeAnti(Particle initialParticle){
+        if(((initialParticle.getName()).substring(0,4)).equals("anti")){
+            initialParticle.setName((initialParticle.makeNameRegular()));
+        }
+        else{
+            initialParticle.setName((initialParticle.makeNameAnti()));
+        }
     }
 
 ////////////////FULL FIT////////////////////FULL FIT//////////////////////////////////////
@@ -151,8 +172,8 @@ public class Main{
         double chargeDifference = ((chargeSum(chargeList(endParticles)))-(chargeSum(chargeList(endParticles))));
         ///put in boson to account for side change
         //see if particle type is same between start and end, account for differences in name
-    }
-*/
+    }*/
+
 
     
 //////////PRESET PARTICLES/////////////////PRESET PARTICLES///////////////////////
