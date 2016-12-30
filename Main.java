@@ -168,7 +168,12 @@ public class Main{
     }
     
     public static boolean findOpposites(ArrayList<Particle> one){
-    
+        ArrayList <String> accumulator = new ArrayList <String>();
+        for(int i = 0; i < one.size(); i++){
+            if((typeList(one).contains(one.get(i)))&&(typeList(one).contains("anti " + one.get(i)))){
+                accumulator.add(typeList(one).get(i));
+            }
+        }
     }
 
 ////////////////FULL FIT////////////////////FULL FIT//////////////////////////////////////
