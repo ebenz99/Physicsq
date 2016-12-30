@@ -112,7 +112,7 @@ public class Main{
     }
     
     //////////CHECK FOR QUARKS////////////CHECK FOR QUARKS////////////////////
-    public static boolean areTheyQuarks(List<String> TypeItems){
+    public static boolean areTheyLeptons(List<String> TypeItems){
         int n = 0;
         for(int j=0; j<TypeItems.size(); j++){
             if(((TypeItems.get(j)).equals("lepton"))){
@@ -157,6 +157,7 @@ public class Main{
         return startOrEndArrangedMassItems;
     }
     
+////////MAKE ANTI/REGULAR VERSION//////////////MAKE ANTI/REGULAR VERSION////////////////    
     public static void makeAnti(Particle initialParticle){
         if(((initialParticle.getName()).substring(0,4)).equals("anti")){
             initialParticle.setName((initialParticle.makeNameRegular()));
@@ -165,14 +166,24 @@ public class Main{
             initialParticle.setName((initialParticle.makeNameAnti()));
         }
     }
+    
+    public static boolean findOpposites(ArrayList<Particle> one){
+    
+    }
 
 ////////////////FULL FIT////////////////////FULL FIT//////////////////////////////////////
-    /*public ArrayList<String> Fit(ArrayList<Particle> startParticles, ArrayList<Particle> endParticles){
-        boolean gluon = areTheyQuarks(typeList(startParticles));
+    public ArrayList<String> Fit(ArrayList<Particle> startParticles, ArrayList<Particle> endParticles){
+        boolean gluon = areTheyLeptons(typeList(startParticles));
         double chargeDifference = ((chargeSum(chargeList(endParticles)))-(chargeSum(chargeList(endParticles))));
+        if (((areTheyLeptons(typeList(startParticles))==false)&&((chargeDifference > .9) && (chargeDifference < 1.1))||((chargeDifference > -.9) && (chargeDifference < -1.1)))){
+            gluon=true;
+        }
+        if((!((typeList(startParticles)).contains("lepton")))&&(((typeList(endParticles)).contains("lepton"))))// and pair==true{    
+    
+        }
         ///put in boson to account for side change
         //see if particle type is same between start and end, account for differences in name
-    }*/
+    }
 
 
     
