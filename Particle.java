@@ -59,6 +59,22 @@ public static final String STATE_ANTI = "anti";
 public static final String TYPE_QUARK = "quark";
 public static final String TYPE_LEPTON = "lepton"; 
 
+public static final int ID_ONE = 1;
+public static final int ID_TWO = 2;
+public static final int ID_THREE = 3;
+public static final int ID_FOUR = 4;
+public static final int ID_FIVE = 5;
+public static final int ID_SIX = 6;
+public static final int ID_SEVEN = 7;
+public static final int ID_EIGHT = 8;
+public static final int ID_NINE = 9;
+public static final int ID_TEN = 10;
+public static final int ID_ELEVEN = 11;
+public static final int ID_TWELVE = 12;
+
+
+
+
 
 private String mass;
 private String charge;
@@ -66,6 +82,7 @@ private String spin;
 private String regular;
 private String name;
 private String type;
+private int ID;
 
 //all-args constructor
 public Particle(String myName, String myCharge, String mySpin, String myRegular, String myMass, String myType){
@@ -75,6 +92,8 @@ public Particle(String myName, String myCharge, String mySpin, String myRegular,
     regular=myRegular;
     name=myName;
     type = myType;
+    ID = 0;
+    /////SET ID HERE???///////////////
 }
 //name constructor (not input based)
 public Particle(String myName){
@@ -85,6 +104,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID = 1;
     }
     if(myName.equals("down quark")){
      mass=MASS_LIGHT;
@@ -93,6 +113,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID=4;
     }
     if(myName.equals("charmed quark")){
      mass=MASS_MEDIUM;
@@ -101,6 +122,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID=2;
     }
     if(myName.equals("strange quark")){
      mass=MASS_MEDIUM;
@@ -109,6 +131,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID=5;
     }
     if(myName.equals("top quark")){
      mass=MASS_HEAVY;
@@ -117,6 +140,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID=3;
     }
     if(myName.equals("bottom quark")){
      mass=MASS_HEAVY;
@@ -125,6 +149,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID=6;
     }
      if(myName.equals("electron")){
       mass=MASS_LIGHT;
@@ -133,6 +158,7 @@ public Particle(String myName){
       spin=SPIN_POS_HALF;
       regular=STATE_REGULAR;
       type=TYPE_LEPTON;
+      ID=7;
     }
      if(myName.equals("muon")){
       mass=MASS_MEDIUM;
@@ -141,6 +167,7 @@ public Particle(String myName){
       spin=SPIN_POS_HALF;
       regular=STATE_REGULAR;
       type=TYPE_LEPTON;
+      ID=8;
     }
     if(myName.equals("tauon")){
      mass=MASS_HEAVY;
@@ -149,6 +176,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_LEPTON;
+     ID=9;
     }
      if(myName.equals("electron neutrino")){
       mass=MASS_LIGHT;
@@ -157,6 +185,7 @@ public Particle(String myName){
       spin=SPIN_POS_HALF;
       regular=STATE_REGULAR;
       type=TYPE_LEPTON;
+      ID=10;
     }
      if(myName.equals("muon neutrino")){
       mass=MASS_MEDIUM;
@@ -165,6 +194,7 @@ public Particle(String myName){
       spin=SPIN_POS_HALF;
       regular=STATE_REGULAR;
       type=TYPE_LEPTON;
+      ID=11;
     }
     if(myName.equals("tau neutrino")){
      mass=MASS_HEAVY;
@@ -173,6 +203,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_LEPTON;
+     ID=12;
     }    
     if(myName.equals("anti up quark")){
      mass=MASS_LIGHT;
@@ -181,6 +212,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID=-1;
     }
     if(myName.equals("anti down quark")){
      mass=MASS_LIGHT;
@@ -189,6 +221,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID=-4;
     }
     if(myName.equals("anti charmed quark")){
      mass=MASS_MEDIUM;
@@ -197,6 +230,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID = -2;
     }
     if(myName.equals("anti strange quark")){
      mass=MASS_MEDIUM;
@@ -205,6 +239,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID = -5;
     }
     if(myName.equals("anti top quark")){
      mass=MASS_HEAVY;
@@ -213,6 +248,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID = -3;
     }
     if(myName.equals("anti bottom quark")){
      mass=MASS_HEAVY;
@@ -221,6 +257,7 @@ public Particle(String myName){
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID = -6;
     }
      if(myName.equals("anti electron")){
       mass=MASS_LIGHT;
@@ -228,7 +265,8 @@ public Particle(String myName){
       charge=CHARGE_POS_ONE;
       spin=SPIN_POS_HALF;
       regular=STATE_ANTI;
-      type=TYPE_QUARK;
+      type=TYPE_LEPTON;
+      ID = -7;
     }
      if(myName.equals("anti muon")){
       mass=MASS_MEDIUM;
@@ -236,7 +274,8 @@ public Particle(String myName){
       charge=CHARGE_POS_ONE;
       spin=SPIN_POS_HALF;
       regular=STATE_ANTI;
-      type=TYPE_QUARK;
+      type=TYPE_LEPTON;
+      ID = -8;
     }
     if(myName.equals("anti tauon")){
      mass=MASS_HEAVY;
@@ -244,7 +283,8 @@ public Particle(String myName){
      charge=CHARGE_POS_ONE;
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
-     type=TYPE_QUARK;
+     type=TYPE_LEPTON;
+     ID = -9;
     }
      if(myName.equals("anti electron neutrino")){
       mass=MASS_LIGHT;
@@ -252,7 +292,8 @@ public Particle(String myName){
       charge=CHARGE_ZERO;
       spin=SPIN_POS_HALF;
       regular=STATE_ANTI;
-      type=TYPE_QUARK;
+      type=TYPE_LEPTON;
+      ID = -10;
     }
      if(myName.equals("anti muon neutrino")){
       mass=MASS_MEDIUM;
@@ -260,21 +301,23 @@ public Particle(String myName){
       charge=CHARGE_ZERO;
       spin=SPIN_POS_HALF;
       regular=STATE_ANTI;
-      type=TYPE_QUARK;
-    }
+      type=TYPE_LEPTON;
+      ID = -11;
+     }
     if(myName.equals("anti tau neutrino")){
      mass=MASS_HEAVY;
      name=NAME_ANTI_TAU_NEUTRINO;
      charge=CHARGE_ZERO;
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
-     type=TYPE_QUARK;
+     type=TYPE_LEPTON;
+     ID = -12;
     }    
 
 }
     
     
-public void setParticle(String myName, String myCharge, String mySpin, String myRegular, String myMass){
+public void setParticle(String myName, String myCharge, String mySpin, String myRegular, String myMass, String myType){
     if((name.equals("?"))&&(charge.equals("?"))&&(spin.equals("?"))&&(regular.equals("?"))&&(mass.equals("?"))){
     System.out.println("Not enough info");    
     }
@@ -285,6 +328,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID = 1;
     }
     if(((mass.equals("medium"))&&(charge.equals("2/3")))||(myName.equals("charmed quark"))){
      mass=MASS_MEDIUM;
@@ -293,6 +337,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID = 2;
     }
     if(((mass.equals("heavy"))&&(charge.equals("2/3")))||(myName.equals("top quark"))){
      mass=MASS_HEAVY;
@@ -301,6 +346,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID = 3;
     }
     if(((mass.equals("light"))&&(charge.equals("-1/3")))||(myName.equals("down quark"))){
      mass=MASS_LIGHT;
@@ -309,6 +355,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID = 4;
     }
     if(((mass.equals("medium"))&&(charge.equals("-1/3")))||(myName.equals("strange quark"))){
      mass=MASS_MEDIUM;
@@ -317,6 +364,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID = 5;
     }
     if(((mass.equals("heavy"))&&(charge.equals("-1/3")))||(myName.equals("bottom quark"))){
      mass=MASS_HEAVY;
@@ -325,6 +373,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_QUARK;
+     ID = 6;
     }
     if(((mass.equals("light"))&&(charge.equals("-2/3")))||(myName.equals("anti up quark"))){
      mass=MASS_MEDIUM;
@@ -333,6 +382,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID = -1;
     }
     if(((mass.equals("medium"))&&(charge.equals("-2/3")))||(myName.equals("anti charmed quark"))){
      mass=MASS_MEDIUM;
@@ -341,6 +391,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID = -2;
     }
     if(((mass.equals("heavy"))&&(charge.equals("-2/3")))||(myName.equals("anti top quark"))){
      mass=MASS_HEAVY;
@@ -349,6 +400,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID = -3;
     }
     if(((mass.equals("light"))&&(charge.equals("1/3")))||(myName.equals("anti down quark"))){
      mass=MASS_LIGHT;
@@ -357,6 +409,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID = -4;
     }
     if(((mass.equals("medium"))&&(charge.equals("1/3")))||(myName.equals("anti strange quark"))){
      mass=MASS_MEDIUM;
@@ -365,6 +418,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID = -5;
     }
     if(((mass.equals("heavy"))&&(charge.equals("1/3")))||(myName.equals("anti bottom quark"))){
      mass=MASS_HEAVY;
@@ -373,6 +427,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_QUARK;
+     ID=-6;
     }
      if(((mass.equals("light"))&&(charge.equals("-1")))||(myName.equals("electron"))){
       mass=MASS_LIGHT;
@@ -381,6 +436,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
       spin=SPIN_POS_HALF;
       regular=STATE_REGULAR;
       type=TYPE_LEPTON;
+      ID = 7;
     }
      if(((mass.equals("medium"))&&(charge.equals("-1")))||(myName.equals("muon"))){
       mass=MASS_MEDIUM;
@@ -389,6 +445,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
       spin=SPIN_POS_HALF;
       regular=STATE_REGULAR;
       type=TYPE_LEPTON;
+      ID = 8;
     }
     if(((mass.equals("heavy"))&&(charge.equals("-1")))||(myName.equals("tauon"))){
      mass=MASS_HEAVY;
@@ -397,6 +454,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_LEPTON;
+     ID = 9;
     }
      if(((mass.equals("light"))&&(charge.equals("0")))||(myName.equals("electron neutrino"))){
       mass=MASS_LIGHT;
@@ -405,6 +463,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
       spin=SPIN_POS_HALF;
       regular=STATE_REGULAR;
       type=TYPE_LEPTON;
+      ID = 10;
     }
      if(((mass.equals("medium"))&&(charge.equals("0")))||(myName.equals("muon neutrino"))){
       mass=MASS_MEDIUM;
@@ -413,6 +472,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
       spin=SPIN_POS_HALF;
       regular=STATE_REGULAR;
       type=TYPE_LEPTON;
+      ID = 11;
     }
     if(((mass.equals("heavy"))&&(charge.equals("0")))||(myName.equals("tau neutrino"))){
      mass=MASS_HEAVY;
@@ -421,6 +481,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_REGULAR;
      type=TYPE_LEPTON;
+     ID = 12;
     }
      if(((mass.equals("light"))&&(charge.equals("1")))||(myName.equals("anti electron"))){
       mass=MASS_LIGHT;
@@ -429,6 +490,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
       spin=SPIN_POS_HALF;
       regular=STATE_ANTI;
       type=TYPE_LEPTON;
+      ID = -7;
     }
      if(((mass.equals("medium"))&&(charge.equals("1")))||(myName.equals("anti muon"))){
       mass=MASS_MEDIUM;
@@ -437,6 +499,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
       spin=SPIN_POS_HALF;
       regular=STATE_ANTI;
       type=TYPE_LEPTON;
+      ID = -8;
     }
     if(((mass.equals("heavy"))&&(charge.equals("1")))||(myName.equals("anti tauon"))){
      mass=MASS_HEAVY;
@@ -445,6 +508,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_LEPTON;
+     ID = -9;
     }
      if(((mass.equals("light"))&&(charge.equals("0")))||(myName.equals("anti electron neutrino"))){
       mass=MASS_LIGHT;
@@ -453,6 +517,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
       spin=SPIN_POS_HALF;
       regular=STATE_ANTI;
       type=TYPE_LEPTON;
+      ID = -10;
     }
      if(((mass.equals("medium"))&&(charge.equals("0")))||(myName.equals("anti muon neutrino"))){
       mass=MASS_MEDIUM;
@@ -461,6 +526,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
       spin=SPIN_POS_HALF;
       regular=STATE_ANTI;
       type=TYPE_LEPTON;
+      ID = -11;
     }
     if(((mass.equals("heavy"))&&(charge.equals("0")))||(myName.equals("anti tau neutrino"))){
      mass=MASS_HEAVY;
@@ -469,6 +535,7 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
      spin=SPIN_POS_HALF;
      regular=STATE_ANTI;
      type=TYPE_LEPTON;
+     ID = -12;
     }
     else{
         System.out.println("Not a particle or not enough information");
@@ -493,7 +560,9 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
     public String getType(){
         return this.type;
     }
-    
+    public int getID(){
+        return this.ID;
+    }
     public void setName(String myName){
         name = myName;
     }
@@ -511,7 +580,10 @@ public void setParticle(String myName, String myCharge, String mySpin, String my
     }
     public void setType(String myType){
         type = myType;
-    }    
+    }
+    public void setID(int myID){
+        ID = myID;
+    }
 
     public String makeNameRegular(){
         int length =  (this.name.length());
