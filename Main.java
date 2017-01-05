@@ -1,20 +1,52 @@
 package physics;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main{
-    
+
+//////////PRESET PARTICLES/////////////////PRESET PARTICLES///////////////////////
+    public static final Particle up = new Particle("up quark");
+    public static final Particle down = new Particle("down quark");
+    public static final Particle charmed = new Particle("charmed quark");
+    public static final Particle strange = new Particle("strange quark");
+    public static final Particle top = new Particle("top quark");
+    public static final Particle bottom = new Particle("bottom quark");
+    public static final Particle electron = new Particle("electron");
+    public static final Particle muon = new Particle("muon");
+    public static final Particle tauon = new Particle("tauon");
+    public static final Particle electronNeutrino = new Particle("electron neutrino");
+    public static final Particle muonNeutrino = new Particle("muon neutrino");
+    public static final Particle tauNeutrino = new Particle("tau neutrino");
+    public static final Particle antiUp = new Particle("anti up quark");
+    public static final Particle antiDown = new Particle("anti down quark");
+    public static final Particle antiCharmed = new Particle("anti charmed quark");
+    public static final Particle antiStrange = new Particle("anti strange quark");
+    public static final Particle antiTop = new Particle("anti top quark");
+    public static final Particle antiBottom = new Particle("anti bottom quark");
+    public static final Particle antiElectron = new Particle("anti electron");
+    public static final Particle antiMuon = new Particle("anti muon");
+    public static final Particle antiTauon = new Particle("anti tauon");
+    public static final Particle antiElectronNeutrino = new Particle("anti electron neutrino");
+    public static final Particle antiMuonNeutrino = new Particle("anti muon neutrino");
+    public static final Particle antiTauNeutrino = new Particle("anti tau neutrino");
+
+/////////////MAIN METHOD////////////////////MAIN METHOD/////////////////////////    
     public static void main(String[] args) {
-        ArrayList<Particle> start = listParticles("start");
+        ArrayList<Particle> baseParticles = new ArrayList<Particle>();
+        baseParticles = createBaseParticleList(up, charmed, top, down, strange, bottom, electron, muon, tauon, electronNeutrino, muonNeutrino, tauNeutrino);
+        
+        ArrayList<Particle> start = convert(listParticles("start"), baseParticles);
         double startChargeSum = chargeSum(chargeList(start));
         System.out.println("this is the end net charge: " + startChargeSum);        
     
-        ArrayList<Particle> end = listParticles("end");
+        ArrayList<Particle> end = convert(listParticles("end"), baseParticles);
         double endChargeSum = chargeSum(chargeList(end));
         System.out.println("this is the end net charge: " + endChargeSum);
+        System.out.println("ID: " + (end.get(0)).getID());
     }
 ///////////END OF MAIN METHOD/////////////END OF MAIN METHOD///////////////////////////////////////
 
@@ -35,7 +67,8 @@ public class Main{
         String spin = "";
         String charge = "";
         String regular = "";
-        String group = ""; 
+        String type = ""; 
+        int ID  = 0;
         for(int i=0; i<particlesNum; i++){
         System.out.println("Do you know particle's name? (yes or no)");     
         doThey = scn.nextLine();
@@ -55,8 +88,10 @@ public class Main{
                 System.out.println("What is the particle anti or regular (put ? if unknown)");
                 regular = scn.nextLine(); 
                 System.out.println("Is the particle a lepton or a quark (put ? if unknown)");
-                group = scn.nextLine(); 
-                particles.add(new Particle(name, charge, spin, regular, mass, group));
+                type = scn.nextLine();
+                Particle forSetting = new Particle(name, charge, spin, regular, mass, type);
+                forSetting.setParticle(name, charge, spin, regular, mass, type);
+                particles.add(forSetting);
             }        
         }  
         return particles;
@@ -101,42 +136,136 @@ public class Main{
         return startOrEndChargeSum;
     }
     
-    
-//////////PRESET PARTICLES/////////////////PRESET PARTICLES///////////////////////
-    public static final Particle up = new Particle("up quark");
-    public static final Particle down = new Particle("down quark");
-    public static final Particle charmed = new Particle("charmed quark");
-    public static final Particle strange = new Particle("strange quark");
-    public static final Particle top = new Particle("top quark");
-    public static final Particle bottom = new Particle("bottom quark");
-    public static final Particle electron = new Particle("electron");
-    public static final Particle muon = new Particle("muon");
-    public static final Particle tauon = new Particle("tauon");
-    public static final Particle electronNeutrino = new Particle("electron neutrino");
-    public static final Particle muonNeutrino = new Particle("muon neutrino");
-    public static final Particle tauNeutrino = new Particle("tau neutrino");
-    public static final Particle antiUp = new Particle("anti up quark");
-    public static final Particle antiDown = new Particle("anti down quark");
-    public static final Particle antiCharmed = new Particle("anti charmed quark");
-    public static final Particle antiStrange = new Particle("anti strange quark");
-    public static final Particle antiTop = new Particle("anti top quark");
-    public static final Particle antiBottom = new Particle("anti bottom quark");
-    public static final Particle antiElectron = new Particle("anti electron");
-    public static final Particle antiMuon = new Particle("anti muon");
-    public static final Particle antiTauon = new Particle("anti tauon");
-    public static final Particle antiElectronNeutrino = new Particle("anti electron neutrino");
-    public static final Particle antiMuonNeutrino = new Particle("anti muon neutrino");
-    public static final Particle antiTauNeutrino = new Particle("anti tau neutrino");
-}
-//MAKE METHOD TO CHECK ARRAYLISTS FOR CERTAIN VALUES (i.e. are there any quarks)
-
-/*public void Fit(ArrayList<String> start, ArrayList<String> end, ArrayList<String> startCharges, ArrayList<String> endCharges, int startNetCharge, int endNetCharge){
-
-}
-
-        ArrayList<String> startGroup = new ArrayList<String>();
-        for(int q=0; q<startNum; q++){
-            startGroup.add((((start.get(q)).getGroup())));
+    ////////LIST PARTICLE TYPES/////////////LIST PARTICLE TYPES/////////////
+    public static List<String> typeList(ArrayList<Particle> startOrEnd){
+        int num = startOrEnd.size();
+        List<String> startOrEndTypeItems = new ArrayList<String>();
+        for(int i=0;i<num; i++){
+                startOrEndTypeItems.add(((startOrEnd.get(i)).getType()));
         }
+        return startOrEndTypeItems;
+    }
+    
+    //////////CHECK FOR QUARKS////////////CHECK FOR QUARKS////////////////////
+    public static boolean areTheyLeptons(List<String> TypeItems){
+        int n = 0;
+        for(int j=0; j<TypeItems.size(); j++){
+            if(((TypeItems.get(j)).equals("lepton"))){
+                n++;
+            }
+        }
+        if(n>0)
+            return false;
+        else
+            return true;
+    }
+    
+//////////////LIST MASSES/////////////////LIST MASSES//////////////////////////
+    public static List<String> massList(ArrayList<Particle> startOrEnd){
+        int num = startOrEnd.size();
+        List<String> startOrEndMassItems = new ArrayList<String>();
+        for(int i=0; i<num; i++){
+                startOrEndMassItems.add(((startOrEnd.get(i)).getMass()));
+        }
+        return startOrEndMassItems;
+    }
+    
+////////ARRANGE MASSES/////////////////////ARRANGE MASSES///////////////////////
+    public static List<String> arrangeMassList(List<String> massList){
+        int num = massList.size();
+        List<String> startOrEndArrangedMassItems = new ArrayList<String>();
+        for(int i=0; i<num; i++){
+            if((massList.get(i)).equals("light")){
+                startOrEndArrangedMassItems.add(massList.get(i));
+            }
+        }
+        for(int j=0; j<num; j++){
+            if((massList.get(j)).equals("medium")){
+                startOrEndArrangedMassItems.add(massList.get(j));
+            }
+        }
+        for(int k=0; k<num; k++){
+            if((massList.get(k)).equals("heavy")){
+                startOrEndArrangedMassItems.add(massList.get(k));
+            }
+        }        
+        return startOrEndArrangedMassItems;
+    }
+    
+///////////LOOKS FOR ANTIPARTICLE PAIRS IN SAME ARRAYLIST///////////////////
+    public static ArrayList<String> findOpposites(ArrayList<Particle> one){
+        ArrayList <String> accumulator = new ArrayList <String>();
+        for(int i = 0; i < one.size(); i++){
+            if((typeList(one).contains(one.get(i).getName()))&&(typeList(one).contains(one.get(i).makeNameAnti()))){
+                accumulator.add(typeList(one).get(i));
+            }
+        }
+        return accumulator;
+    }
+///////CREATE BASELINE////////////////////CREATE BASELINE//////////////////////////////////
+public static ArrayList<Particle> createBaseParticleList(Particle one, Particle two, Particle three, Particle four, Particle five, Particle six, Particle seven, Particle eight, Particle nine, Particle ten, Particle eleven, Particle twelve){
+    ArrayList<Particle> BaseParticles = new ArrayList<Particle>();
+    BaseParticles.add(one);
+    BaseParticles.add(two);
+    BaseParticles.add(three);
+    BaseParticles.add(four);
+    BaseParticles.add(five);
+    BaseParticles.add(six);
+    BaseParticles.add(seven);
+    BaseParticles.add(eight);
+    BaseParticles.add(nine);
+    BaseParticles.add(ten);
+    BaseParticles.add(eleven);
+    BaseParticles.add(twelve);
+    return BaseParticles;
+}
+    
+ ///CONVERT INPUTS TO PRESET PARTICLES////////////////////
+public static ArrayList<Particle> convert(ArrayList<Particle> inputs, ArrayList <Particle> baseline){
+   for (int i =0; i<inputs.size(); i++){
+       if(baseline.contains(inputs.get(i))){
+           int location = baseline.indexOf(inputs.get(i));
+           inputs.set(i, baseline.get(location));
+       }
+    }
+   return inputs;
+}
+    
+    
+/*//EITHER MAKE WEIGHTS INTS OR PARTICLES INTS
+    public ArrayList<Integer> particlesToInts(ArrayList<Particle> particles){
+        for (int i=0; i<particles.size(); i++){
+            
+        }
+    }
+ */   
+    
+/*///////////////FULL FIT////////////////////FULL FIT//////////////////////////////////////
+    public ArrayList<String> Fit(ArrayList<Particle> startParticles, ArrayList<Particle> endParticles){
+        boolean gluon = areTheyLeptons(typeList(startParticles));
+        double chargeDifference = ((chargeSum(chargeList(endParticles)))-(chargeSum(chargeList(endParticles))));
+        if (((areTheyLeptons(typeList(startParticles))==false)&&((chargeDifference > .9) && (chargeDifference < 1.1))||((chargeDifference > -.9) && (chargeDifference < -1.1)))){
+            gluon=true;
+        }
+        if((!((typeList(startParticles)).contains("lepton")))&&(((typeList(endParticles)).contains("lepton"))))// and pair==true{    
+    
+        }
+        ///put in boson to account for side change
+        //see if particle type is same between start and end, account for differences in name
+    }
+*/
 
+    
+}
+
+/*
+////////MAKE ANTI/REGULAR VERSION//////////////MAKE ANTI/REGULAR VERSION////////////////    
+    public static void makeAnti(Particle initialParticle){
+        if(((initialParticle.getName()).substring(0,4)).equals("anti")){
+            initialParticle.setName((initialParticle.makeNameRegular()));
+        }
+        else{
+            initialParticle.setName((initialParticle.makeNameAnti()));
+        }
+    }
 */
