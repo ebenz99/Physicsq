@@ -192,16 +192,68 @@ public class Main{
         return startOrEndArrangedMassItems;
     }
     
+
 ///////////LOOKS FOR ANTIPARTICLE PAIRS IN SAME ARRAYLIST///////////////////
-    public static ArrayList<String> findOpposites(ArrayList<Particle> one){
-        ArrayList <String> accumulator = new ArrayList <String>();
+    public static ArrayList<Particle> findOpposites(ArrayList<Particle> one){
+        ArrayList <Particle> accumulator = new ArrayList <Particle>();
+        int n = 0;
+        ArrayList <Integer> IDs = new ArrayList <Integer>();
         for(int i = 0; i < one.size(); i++){
-            if((typeList(one).contains(one.get(i).getName()))&&(typeList(one).contains(one.get(i).makeNameAnti()))){
-                accumulator.add(typeList(one).get(i));
+            IDs.add(one.get(i).getID());
+        }
+        for(int j = 0; j<IDs.size(); j++){
+            n=(one.get(j).getID());
+            if((IDs.get(j))==n){
+                accumulator.add((one.get(j)));
+            }
+            
+        }
+        return accumulator;
+    }
+
+///////////LOOKS FOR SAME PARTICLES IN START TO FINISH///////////////////
+    public static ArrayList<Particle> findSames(ArrayList<Particle> start, ArrayList<Particle> end){
+        ArrayList <Particle> accumulator = new ArrayList <Particle>();
+        int n = 0;
+        for (int i = 0; i < start.size(); i++) {
+            n = ((start.get(i)).getID());
+            for (int j = 0; j < end.size(); j++) {               
+                if ((end.get(j).getID()) == n) {
+                    accumulator.add((start.get(i)));
+                }
             }
         }
         return accumulator;
     }
+    
+////////////////////////////LOOK FOR ELECTRON ANTI NEUTRINO PAIRS/////////////////////////
+
+    public static ArrayList<Particle> findChargeLeptonAntiUnchargedpairs(ArrayList<Particle> one) {
+        ArrayList<Particle> accumulator = new ArrayList<Particle>();
+        int n = 0;
+        ArrayList<Integer> IDs = new ArrayList<Integer>();
+        for (int i = 0; i < one.size(); i++) {
+            IDs.add(one.get(i).getID());
+        }
+        for (int j = 0; j < IDs.size(); j++) {
+            n = (one.get(j).getID());
+
+            if (n < 0) {
+                if ((IDs.get(j)) == (-n) + 3) {
+                    accumulator.add((one.get(j)));
+                }
+            } else {
+                if ((IDs.get(j)) == (-n) - 3) {
+                    accumulator.add((one.get(j)));
+                }
+            }
+        }
+        return accumulator;
+    }
+  
+    
+    
+
 ///////CREATE BASELINE////////////////////CREATE BASELINE//////////////////////////////////
 public static ArrayList<Particle> createBaseParticleList(Particle one, Particle two, Particle three, Particle four, Particle five, Particle six, Particle seven, Particle eight, Particle nine, Particle ten, Particle eleven, Particle twelve){
     ArrayList<Particle> BaseParticles = new ArrayList<Particle>();
@@ -219,6 +271,8 @@ public static ArrayList<Particle> createBaseParticleList(Particle one, Particle 
     BaseParticles.add(twelve);
     return BaseParticles;
 }
+
+
     
  ///CONVERT INPUTS TO PRESET PARTICLES////////////////////
 public static ArrayList<Particle> convert(ArrayList<Particle> inputs, ArrayList <Particle> baseline){
@@ -231,31 +285,57 @@ public static ArrayList<Particle> convert(ArrayList<Particle> inputs, ArrayList 
    return inputs;
 }
     
-    
-/*//EITHER MAKE WEIGHTS INTS OR PARTICLES INTS
+////MAKE WEIGHTS INTS///
     public ArrayList<Integer> particlesToInts(ArrayList<Particle> particles){
+        ArrayList<Integer> intMass = new ArrayList <Integer>();
         for (int i=0; i<particles.size(); i++){
-            
+            if(particles.get(i).getMass().equals("heavy")){
+                intMass.add(3);
+            }
+            if(particles.get(i).getMass().equals("medium")){
+                intMass.add(2);
+            }
+            if(particles.get(i).getMass().equals("light")){
+                intMass.add(1);
+            }
         }
+        return intMass;
     }
- */   
     
-/*///////////////FULL FIT////////////////////FULL FIT//////////////////////////////////////
-    public ArrayList<String> Fit(ArrayList<Particle> startParticles, ArrayList<Particle> endParticles){
+    
+///////////////FULL FIT////////////////////FULL FIT//////////////////////////////////////
+    public ArrayList<String> Fit(ArrayList<Particle> startParticles, ArrayList<Particle> endParticles) {
         boolean gluon = areTheyLeptons(typeList(startParticles));
-        double chargeDifference = ((chargeSum(chargeList(endParticles)))-(chargeSum(chargeList(endParticles))));
-        if (((areTheyLeptons(typeList(startParticles))==false)&&((chargeDifference > .9) && (chargeDifference < 1.1))||((chargeDifference > -.9) && (chargeDifference < -1.1)))){
-            gluon=true;
+        double chargeDifference = ((chargeSum(chargeList(endParticles))) - (chargeSum(chargeList(endParticles))));
+        ArrayList <Particle> sameAcross = new ArrayList <Particle>();
+        sameAcross = findSames(startParticles, endParticles);
+        int count = 0;
+        for(int i = 0; i<sameAcross.size(); i++){
+            startParticles.remove(startParticles.indexOf((sameAcross.get(i)))+count);
+            endParticles.remove(endParticles.indexOf(sameAcross.get(i))+count);
+            count++;
         }
-        if((!((typeList(startParticles)).contains("lepton")))&&(((typeList(endParticles)).contains("lepton"))))// and pair==true{    
-    
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //if (((areTheyLeptons(typeList(startParticles))==false)&&((chargeDifference > .9) && (chargeDifference < 1.1))||((chargeDifference > -.9) && (chargeDifference < -1.1)))){
+        //    gluon=true;
+        //}
+        //if((!((typeList(startParticles)).contains("lepton")))&&(((typeList(endParticles)).contains("lepton"))))// and pair==true{    
+        //}
         ///put in boson to account for side change
         //see if particle type is same between start and end, account for differences in name
     }
-*/
 
-    
 }
 
 /*
@@ -267,5 +347,18 @@ public static ArrayList<Particle> convert(ArrayList<Particle> inputs, ArrayList 
         else{
             initialParticle.setName((initialParticle.makeNameAnti()));
         }
+    }
+*/
+
+///////////LOOKS FOR ANTIPARTICLE PAIRS IN SAME ARRAYLIST//////////////////
+    /*
+    public static ArrayList<String> findOpposites(ArrayList<Particle> one){
+        ArrayList <String> accumulator = new ArrayList <String>();
+        for(int i = 0; i < one.size(); i++){
+            if((typeList(one).contains(one.get(i).getName()))&&(typeList(one).contains(one.get(i).makeNameAnti()))){
+                accumulator.add(typeList(one).get(i));
+            }
+        }
+        return accumulator;
     }
 */
