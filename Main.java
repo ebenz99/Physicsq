@@ -306,7 +306,6 @@ public static ArrayList<Particle> convert(ArrayList<Particle> inputs, ArrayList 
 ///////////////FULL FIT////////////////////FULL FIT//////////////////////////////////////
     public ArrayList<String> Fit(ArrayList<Particle> startParticles, ArrayList<Particle> endParticles) {
         boolean gluon = areTheyLeptons(typeList(startParticles));
-        double chargeDifference = ((chargeSum(chargeList(endParticles))) - (chargeSum(chargeList(endParticles))));
         ArrayList <Particle> sameAcross = new ArrayList <Particle>();
         sameAcross = findSames(startParticles, endParticles);
         int count = 0;
@@ -314,6 +313,17 @@ public static ArrayList<Particle> convert(ArrayList<Particle> inputs, ArrayList 
             startParticles.remove(startParticles.indexOf((sameAcross.get(i)))+count);
             endParticles.remove(endParticles.indexOf(sameAcross.get(i))+count);
             count++;
+        }
+        double chargeDifference = ((chargeSum(chargeList(endParticles))) - (chargeSum(chargeList(endParticles))));
+        String typeTest = "";
+        for(int j=0; j<startParticles.size(); j++){
+            typeTest = (startParticles.get(j).getType());
+            for(int k=0; k<startParticles.size(); k++){
+                if(((endParticles.get(k)).getType()).equals(typeTest)){
+                    howdy.add((startParticles.get(j)));
+                    howdy.add((endParticles.get(k)));
+                }
+            }
         }
         
         
