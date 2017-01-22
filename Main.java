@@ -310,31 +310,24 @@ public static ArrayList<Particle> convert(ArrayList<Particle> inputs, ArrayList 
         sameAcross = findSames(startParticles, endParticles);
         int count = 0;
         for(int i = 0; i<sameAcross.size(); i++){
-            startParticles.remove(startParticles.indexOf((sameAcross.get(i)))+count);
-            endParticles.remove(endParticles.indexOf(sameAcross.get(i))+count);
+            startParticles.remove(startParticles.indexOf((sameAcross.get(i))));//used to have +count at end
+            endParticles.remove(endParticles.indexOf(sameAcross.get(i)));//used to have +count at end
             count++;
         }
         double chargeDifference = ((chargeSum(chargeList(endParticles))) - (chargeSum(chargeList(endParticles))));
+        
+        //
         String typeTest = "";
+        ArrayList<Particle> howdy = new ArrayList();
         for(int j=0; j<startParticles.size(); j++){
             typeTest = (startParticles.get(j).getType());
-            for(int k=0; k<startParticles.size(); k++){
+            for(int k=0; k<endParticles.size(); k++){//used to be startParticle.size
                 if(((endParticles.get(k)).getType()).equals(typeTest)){
                     howdy.add((startParticles.get(j)));
                     howdy.add((endParticles.get(k)));
                 }
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         //if (((areTheyLeptons(typeList(startParticles))==false)&&((chargeDifference > .9) && (chargeDifference < 1.1))||((chargeDifference > -.9) && (chargeDifference < -1.1)))){
