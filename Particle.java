@@ -81,6 +81,8 @@ public class Particle {
     private String name;
     private String type;
     private int ID;
+    private int row;
+    private int column;
 
 //all-args constructor
     public Particle(String myName, String myCharge, String mySpin, String myRegular, String myMass, String myType) {
@@ -104,6 +106,7 @@ public class Particle {
             regular = STATE_REGULAR;
             type = TYPE_QUARK;
             ID = 1;
+            
         }
         if (myName.equals("down quark")) {
             mass = MASS_LIGHT;
@@ -594,6 +597,13 @@ public class Particle {
     public void setID(int myID) {
         ID = myID;
     }
+    public void setRow(int myRow) {
+        row = myRow;
+    }
+    public void setColumn(int myColumn) {
+        row = myColumn;
+    }
+    
 
     public String makeNameRegular() {
         int length = (this.name.length());
